@@ -1,8 +1,8 @@
 :root {
     --primario: #9C27B0;
-    --primario-oscuro: #89119D;
+    --primarioOscuro: #89119D;
     --secundario: #FFCE00;
-    --secundario-oscuro: rgb(233,287,2);
+    --secundarioOscuro: rgb(233,287,2);
     --blanco: #FFF;
     --negro: #000;
 
@@ -71,8 +71,20 @@ h3 {
     margin: 3rem 0;
 }
 
+.footer {
+    background-color: (--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    text-align: center;
+    font-family: var(--fuente-principal);
+    font-size: 2.2rem;
+}
+
 .navegacion {
-    background-color: var(--primario-oscuro);
+    background-color: var(--primarioOscuro);
     padding: 1rem 0;
     display: flex;
     justify-content: center;
