@@ -35,8 +35,8 @@ a {
     text-decoration: none;
 }
 
-img {
-    width: 100%;
+img {    
+    max-width: 100%;
 }
 
 .contenedor {
