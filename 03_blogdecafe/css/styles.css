@@ -84,6 +84,9 @@ img {
     margin-top: 5rem;
 }
 
+.barra {
+    padding-top: 4rem;
+}
 
 @media (min-width: 768px) {
     .barra {
@@ -133,7 +136,6 @@ img {
         column-gap: 4rem;
     }    
 }
-
 
 .entrada {
     border-bottom: 1px solid var(--gris);
@@ -197,4 +199,10 @@ img {
 .widget-curso__label,
 .widget-curso__curso {
     font-size: 2rem;
+}
+
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
 }
