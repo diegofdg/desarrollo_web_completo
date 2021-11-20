@@ -13,6 +13,7 @@
   "author": "Diego Fabián Di Giorgio",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^4.0.2",
     "sass": "^1.43.4"
   }
 }
