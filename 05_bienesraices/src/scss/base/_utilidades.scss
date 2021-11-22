@@ -1,0 +1,10 @@
+@use "sass:math";
+
+.seccion {    
+    margin-top: math.div($separacion, 2);
+    margin-bottom: math.div($separacion, 2);    
+}
+
+.contenido-centrado {
+    max-width: 800px;
+}
