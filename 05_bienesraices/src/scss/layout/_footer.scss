@@ -1,0 +1,15 @@
+@use "sass:math";
+
+.footer {
+    padding: math.div($separacion, 2) 0;        
+    background-color: $grisOscuro;    
+
+    .contenedor-footer {
+        padding-top: math.div($separacion, 2);
+    }
+
+    .copyright {
+        color: $blanco;
+        text-align: center;
+    }
+}
