@@ -46,14 +46,14 @@ function versionAvif( done ){
 }
 
 function javascript( done ) {
-    src('src/js/**/*.js')        
-        .pipe( dest('build/js') )
-        done();
+    src('src/js/**/*.js')
+        .pipe(dest('build/js'));
+    done();
 }
 
 function dev ( done ) {
     watch('src/scss/**/*.scss', css);
-    watch('src/scss/**/*.js', javascript);
+    watch('src/js/**/*.js', javascript);
 
     done();
 }
