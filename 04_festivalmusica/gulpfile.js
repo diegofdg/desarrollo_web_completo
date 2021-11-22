@@ -4,6 +4,7 @@ const plumber = require('gulp-plumber');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
 const cache = require('gulp-cache');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
@@ -11,9 +12,11 @@ const avif = require('gulp-avif');
 
 function css( done ) {
     src('src/scss/**/*.scss')
+        .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass ())
         .pipe( postcss([ autoprefixer(), cssnano() ]) )
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'));
     done();
 }
