@@ -17,6 +17,7 @@ body {
 p {
     font-size: 2rem;
     color: v.$negro;
+    line-height: 1.5;
 }
 
 .contenedor{
@@ -31,6 +32,7 @@ a {
 
 img {
     max-width: 100%;
+    display:grid;
 }
 
 h1 {
