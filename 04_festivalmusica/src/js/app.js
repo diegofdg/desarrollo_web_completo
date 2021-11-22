@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function iniciarApp() {
     crearGaleria();
     scrollNav();
+    navegacionFija();
 }
 
 function crearGaleria() {
@@ -36,6 +37,19 @@ function scrollNav() {
             const seccion = document.querySelector(seccionScroll);
             seccion.scrollIntoView({ behavior: "smooth"});
         });
+    });
+}
+
+function navegacionFija() {
+    const barra = document.querySelector('.header');
+    const sobreFestival = document.querySelector('.sobre-festival');
+
+    window.addEventListener('scroll', function() {
+        if( sobreFestival.getBoundingClientRect().bottom < 0  ) {
+            barra.classList.add('fijo');            
+        } else {
+            barra.classList.remove('fijo');            
+        }
     });
 }
 
