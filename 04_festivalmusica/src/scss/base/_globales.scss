@@ -12,6 +12,10 @@ html {
 body {
     font-family: v.$fuentePrincipal;
     font-size: 1.6rem;
+
+    &.fijar-body {
+        overflow: hidden;
+    }
 }
 
 p {
