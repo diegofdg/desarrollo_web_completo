@@ -9,6 +9,11 @@
         padding-top: math.div($separacion, 2);
     }
 
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
+    }
+
     .copyright {
         color: $blanco;
         text-align: center;
