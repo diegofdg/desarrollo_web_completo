@@ -2,9 +2,14 @@
     require '../../includes/config/database.php';
     $db = conectarDB();
     
-    echo '<pre>';    
-        var_dump($db);
-    echo '</pre>';
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo '<pre>';    
+            var_dump($_POST);
+        echo '</pre>';
+
+        $titulo = $_POST['titulo'];
+        $precio = $_POST['precio'];
+    }
 
     require '../../includes/funciones.php';
     
@@ -15,7 +20,7 @@
         <h1>Crear</h1>
         <a href="/admin/" class="boton boton-verde">Volver</a>
         
-        <form class="formulario">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
             <fieldset>
                 <legend>Información General</legend>
 
@@ -26,10 +31,10 @@
                 <input type="number" id="precio" name="precio" placeholder="Precio Propiedad">
 
                 <label for="imagen">Imagen:</label>
-                <input type="file" id="imagen" accept="image/jpeg, image/png">
+                <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
 
                 <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion"></textarea>
+                <textarea id="descripcion" name="descripcion"></textarea>
             </fieldset>
 
             <fieldset>
@@ -38,7 +43,8 @@
                 <label for="habitaciones">Habitaciones:</label>
                 <input 
                     type="number" 
-                    id="habitaciones"                    
+                    id="habitaciones" 
+                    name="habitaciones"
                     placeholder="Ej: 3" 
                     min="1" 
                     max="9">
