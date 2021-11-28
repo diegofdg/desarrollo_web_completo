@@ -3,12 +3,17 @@
     $db = conectarDB();
     
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo '<pre>';    
-            var_dump($_POST);
-        echo '</pre>';
-
         $titulo = $_POST['titulo'];
         $precio = $_POST['precio'];
+        $descripcion = $_POST['descripcion'];
+        $habitaciones = $_POST['habitaciones'];
+        $wc = $_POST['wc'];
+        $estacionamiento = $_POST['estacionamiento'];
+        $vendedorId = $_POST['vendedor'];
+
+        $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId ) VALUES ( '$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId' ) ";        
+
+        $resultado = mysqli_query($db, $query);                
     }
 
     require '../../includes/funciones.php';
