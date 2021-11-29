@@ -24,6 +24,7 @@
         $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
         $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedor']);
         $creado = date('Y/m/d');
+        $imagen = $_FILES['imagen'];
 
         if(!$titulo) {
             $errores[] = "Debes añadir un titulo";
@@ -50,6 +51,16 @@
         
         if(!$vendedorId) {
             $errores[] = 'Elige un vendedor';
+        }
+
+        if(!$imagen['name'] || $imagen['error'] ) {
+            $errores[] = 'La Imagen es Obligatoria';
+        }
+
+        $medida = 1000 * 100;
+
+        if($imagen['size'] > $medida ) {
+            $errores[] = 'La Imagen es muy pesada';
         }
         
         if(empty($errores)) {
@@ -78,7 +89,7 @@
             </div>
         <?php endforeach; ?>
         
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
 
