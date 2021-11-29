@@ -1,6 +1,9 @@
 <?php
     require '../../includes/config/database.php';
     $db = conectarDB();
+    
+    $consulta = "SELECT * FROM vendedores";
+    $resultado = mysqli_query($db, $consulta);
 
     $errores = [];
 
@@ -11,6 +14,7 @@
     $wc = '';
     $estacionamiento = '';
     $vendedorId = '';
+    $creado = date('Y/m/d');
     
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titulo = $_POST['titulo'];
@@ -49,12 +53,12 @@
         }
         
         if(empty($errores)) {
-            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedorId ) VALUES ( '$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedorId' ) ";        
+            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId ) VALUES ( '$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId' ) ";
 
             $resultado = mysqli_query($db, $query);                
 
             if($resultado) {
-                echo 'Insertado correctamente';
+                header('Location: /admin');
             }
         } 
     }
@@ -131,9 +135,15 @@
             <fieldset>
                 <legend>Vendedor</legend>
                 <select name="vendedor">
-                    <option value="">-- Seleccione --</option>
-                    <option value="1">Juan</option>
-                    <option value="2">Karen</option>
+                    <option value="">-- Seleccione --</option>                    
+                    <?php while($vendedor =  mysqli_fetch_assoc($resultado) ) : ?>
+                        <option
+                            <?php echo $vendedorId === $vendedor['id'] ? 'selected' : ''; ?>
+                            value="<?php echo $vendedor['id']; ?>"
+                        >
+                            <?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?>
+                        </option>
+                    <?php endwhile; ?>
                 </select>
             </fieldset>
 
