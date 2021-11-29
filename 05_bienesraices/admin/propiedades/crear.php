@@ -13,17 +13,17 @@
     $habitaciones = '';
     $wc = '';
     $estacionamiento = '';
-    $vendedorId = '';
-    $creado = date('Y/m/d');
+    $vendedorId = '';    
     
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $titulo = $_POST['titulo'];
-        $precio = $_POST['precio'];
-        $descripcion = $_POST['descripcion'];
-        $habitaciones = $_POST['habitaciones'];
-        $wc = $_POST['wc'];
-        $estacionamiento = $_POST['estacionamiento'];
-        $vendedorId = $_POST['vendedor'];
+        $titulo = mysqli_real_escape_string( $db, $_POST['titulo']);
+        $precio = mysqli_real_escape_string( $db, $_POST['precio']);
+        $descripcion = mysqli_real_escape_string( $db, $_POST['descripcion']);
+        $habitaciones = mysqli_real_escape_string( $db, $_POST['habitaciones']);
+        $wc = mysqli_real_escape_string( $db, $_POST['wc']);
+        $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
+        $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedor']);
+        $creado = date('Y/m/d');
 
         if(!$titulo) {
             $errores[] = "Debes añadir un titulo";
