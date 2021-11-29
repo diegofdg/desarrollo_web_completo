@@ -67,10 +67,6 @@
             $errores[] = 'Elige un vendedor';
         }
 
-        if(!$imagen['name'] || $imagen['error'] ) {
-            $errores[] = 'La Imagen es Obligatoria';
-        }
-
         $medida = 1000 * 100;
 
         if($imagen['size'] > $medida ) {
@@ -79,22 +75,22 @@
         
         if(empty($errores)) {
 
-            $carpetaImagenes = '../../imagenes/';
+            // $carpetaImagenes = '../../imagenes/';
 
-            if(!is_dir($carpetaImagenes)) {
-                mkdir($carpetaImagenes);
-            }
+            // if(!is_dir($carpetaImagenes)) {
+            //     mkdir($carpetaImagenes);
+            // }
             
-            $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+            // $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+            // move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
             
-            $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId ) VALUES ( '$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId' ) ";
+            $query = " UPDATE propiedades SET titulo = '${titulo}', precio = '${precio}', imagen = '${nombreImagen}', descripcion = '${descripcion}', habitaciones = ${habitaciones}, wc = ${wc}, estacionamiento = ${estacionamiento}, vendedorId = ${vendedorId} WHERE id = ${id} ";
 
             $resultado = mysqli_query($db, $query);                
 
             if($resultado) {
-                header('Location: /admin?resultado=1');
+                header('Location: /admin?resultado=2');
             }
         }        
     }
@@ -115,7 +111,7 @@
         </div>
         <?php endforeach; ?>
 
-        <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
+        <form class="formulario" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Información General</legend>
 
