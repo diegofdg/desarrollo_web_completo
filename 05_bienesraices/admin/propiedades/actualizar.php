@@ -67,23 +67,25 @@
             $errores[] = 'Elige un vendedor';
         }
 
-        $medida = 1000 * 100;
+        $medida = 1000 * 1000;
 
         if($imagen['size'] > $medida ) {
             $errores[] = 'La Imagen es muy pesada';
         }
         
         if(empty($errores)) {
+            $carpetaImagenes = '../../imagenes/';
 
-            // $carpetaImagenes = '../../imagenes/';
+            if($imagen['name']) {
+                unlink($carpetaImagenes . $propiedad['imagen']);                
 
-            // if(!is_dir($carpetaImagenes)) {
-            //     mkdir($carpetaImagenes);
-            // }
-            
-            // $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+                $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-            // move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+                move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+                
+            } else {
+                $nombreImagen = $propiedad['imagen'];
+            }
             
             $query = " UPDATE propiedades SET titulo = '${titulo}', precio = '${precio}', imagen = '${nombreImagen}', descripcion = '${descripcion}', habitaciones = ${habitaciones}, wc = ${wc}, estacionamiento = ${estacionamiento}, vendedorId = ${vendedorId} WHERE id = ${id} ";
 
