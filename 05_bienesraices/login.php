@@ -25,7 +25,13 @@
             $usuario = mysqli_fetch_assoc($resultado);
             $auth = password_verify($password, $usuario['password']);
 
-            if($auth) {            
+            if($auth) {  
+                session_start();
+
+                $_SESSION['usuario'] = $usuario['email'];
+                $_SESSION['login'] = true;
+    
+                header('Location: /admin');          
                 
             } else {
                 $errores[] = 'El password es incorrecto';
