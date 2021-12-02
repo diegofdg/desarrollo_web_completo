@@ -1,4 +1,11 @@
 <?php 
+    require '../../includes/funciones.php';
+        
+    $auth = estaAutenticado();
+
+    if(!$auth) {
+        header('Location: /');
+    }
 
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -96,8 +103,6 @@
             }
         }        
     }
-
-    require '../../includes/funciones.php';
     
     incluirTemplate('header');    
 ?>
