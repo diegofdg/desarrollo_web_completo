@@ -15,13 +15,21 @@
         if(!$password) {
             $errores[] = "El Password es obligatorio";
         }    
-            
+
         if(empty($errores)) {
             $query = "SELECT * FROM usuarios WHERE email = '${email}' ";
             $resultado = mysqli_query($db, $query);
         }
 
         if( $resultado->num_rows ) {
+            $usuario = mysqli_fetch_assoc($resultado);
+            $auth = password_verify($password, $usuario['password']);
+
+            if($auth) {            
+                
+            } else {
+                $errores[] = 'El password es incorrecto';
+            }
 
         } else {
             $errores[] = "El Usuario no existe";
