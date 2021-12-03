@@ -1,11 +1,7 @@
 <?php 
-    require '../../includes/funciones.php';
-        
-    $auth = estaAutenticado();
-
-    if(!$auth) {
-        header('Location: /');
-    }
+    require '../../includes/app.php';
+    
+    estaAutenticado();
 
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -14,7 +10,6 @@
         header('Location: /admin');
     }
 
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     $consulta = "SELECT * FROM propiedades WHERE id = ${id}";
