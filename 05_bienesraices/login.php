@@ -1,5 +1,5 @@
 <?php     
-    require 'includes/config/database.php';
+    require 'includes/app.php';
     $db = conectarDB();
 
     $errores = [];
@@ -40,10 +40,8 @@
         } else {
             $errores[] = "El Usuario no existe";
         }
-
     }
 
-    require 'includes/funciones.php';
     incluirTemplate('header');
 ?>
 

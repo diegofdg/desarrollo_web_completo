@@ -1,0 +1,17 @@
+{
+    "name": "diegofdg/bienesraices",
+    "description": "Creando un Proyecto con POO",
+    "type": "project",    
+    "authors": [
+        {
+            "name": "Diego Fabián Di Giorgio",
+            "email": "diegofdg@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./classes"
+        }
+    }
+}
