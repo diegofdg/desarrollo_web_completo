@@ -10,7 +10,7 @@
     $consulta = "SELECT * FROM vendedores";
     $resultado = mysqli_query($db, $consulta);
 
-    $errores = [];
+    $errores = Propiedad::getErrores();
 
     $titulo = '';
     $precio = '';
@@ -23,56 +23,13 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $propiedad = new Propiedad($_POST);
 
-        $propiedad->guardar();
+        $errores = $propiedad->validar();
 
-        $titulo = mysqli_real_escape_string( $db, $_POST['titulo']);
-        $precio = mysqli_real_escape_string( $db, $_POST['precio']);
-        $descripcion = mysqli_real_escape_string( $db, $_POST['descripcion']);
-        $habitaciones = mysqli_real_escape_string( $db, $_POST['habitaciones']);
-        $wc = mysqli_real_escape_string( $db, $_POST['wc']);
-        $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
-        $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedorId']);
-        $creado = date('Y/m/d');
-        $imagen = $_FILES['imagen'];
-
-        if(!$titulo) {
-            $errores[] = "Debes añadir un titulo";
-        }
-        if(!$precio) {
-            $errores[] = 'El Precio es Obligatorio';
-        }
-
-        if( strlen( $descripcion ) < 50 ) {
-            $errores[] = 'La descripción es obligatoria y debe tener al menos 50 caracteres';
-        }
-
-        if(!$habitaciones) {
-            $errores[] = 'El Número de habitaciones es obligatorio';
-        }
-        
-        if(!$wc) {
-            $errores[] = 'El Número de Baños es obligatorio';
-        }
-
-        if(!$estacionamiento) {
-            $errores[] = 'El Número de lugares de Estacionamiento es obligatorio';
-        }
-        
-        if(!$vendedorId) {
-            $errores[] = 'Elige un vendedor';
-        }
-
-        if(!$imagen['name'] || $imagen['error'] ) {
-            $errores[] = 'La Imagen es Obligatoria';
-        }
-
-        $medida = 1000 * 1000;
-
-        if($imagen['size'] > $medida ) {
-            $errores[] = 'La Imagen es muy pesada';
-        }
-        
         if(empty($errores)) {
+            $propiedad->guardar();
+
+            $imagen = $_FILES['imagen'];
+            
             $carpetaImagenes = '../../imagenes/';
 
             if(!is_dir($carpetaImagenes)) {
