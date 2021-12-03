@@ -21,13 +21,17 @@
     $vendedorId = '';    
     
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $propiedad = new Propiedad($_POST);
+
+        $propiedad->guardar();
+
         $titulo = mysqli_real_escape_string( $db, $_POST['titulo']);
         $precio = mysqli_real_escape_string( $db, $_POST['precio']);
         $descripcion = mysqli_real_escape_string( $db, $_POST['descripcion']);
         $habitaciones = mysqli_real_escape_string( $db, $_POST['habitaciones']);
         $wc = mysqli_real_escape_string( $db, $_POST['wc']);
         $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
-        $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedor']);
+        $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedorId']);
         $creado = date('Y/m/d');
         $imagen = $_FILES['imagen'];
 
@@ -158,7 +162,7 @@
 
             <fieldset>
                 <legend>Vendedor</legend>
-                <select name="vendedor">
+                <select name="vendedorId">
                     <option value="">-- Seleccione --</option>                    
                     <?php while($vendedor =  mysqli_fetch_assoc($resultado) ) : ?>
                         <option
