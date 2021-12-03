@@ -23,7 +23,7 @@ class Propiedad {
         $this->id = $args['id'] ?? '';
         $this->titulo = $args['titulo'] ?? '';
         $this->precio = $args['precio'] ?? '';
-        $this->imagen = $args['imagen'] ?? 'imagen.jpg';
+        $this->imagen = $args['imagen'] ?? '';
         $this->descripcion = $args['descripcion'] ?? '';
         $this->habitaciones = $args['habitaciones'] ?? '';
         $this->wc = $args['wc'] ?? '';
@@ -43,7 +43,8 @@ class Propiedad {
         $query .= " ') ";
         
         $resultado = self::$db->query($query);
-        debuguear($resultado);
+        
+        return $resultado;
     } 
 
     public static function setDB($database) {
@@ -71,6 +72,12 @@ class Propiedad {
 
         return $sanitizado;
     } 
+
+    public function setImagen($imagen) {
+        if($imagen){
+            $this->imagen = $imagen;
+        }
+    }
 
     public static function getErrores() {
         return self::$errores;
@@ -102,7 +109,11 @@ class Propiedad {
         
         if(!$this->vendedorId) {
             self::$errores[] = 'Elige un vendedor';
-        }       
+        }      
+        
+        if(!$this->imagen ) {
+            self::$errores[] = 'La Imagen es Obligatoria';
+        }
 
         return self::$errores;
     }
