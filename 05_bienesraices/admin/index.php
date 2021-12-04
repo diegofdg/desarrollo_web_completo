@@ -2,13 +2,11 @@
     require '../includes/app.php';
     
     estaAutenticado();    
-
-    $db = conectarDB();
-
-    $query = "SELECT * FROM propiedades";
-
-    $resultadoConsulta = mysqli_query($db, $query);    
     
+    use App\Propiedad;
+
+    $propiedad = Propiedad::all();
+   
     $resultado = $_GET['resultado'] ?? null;
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {

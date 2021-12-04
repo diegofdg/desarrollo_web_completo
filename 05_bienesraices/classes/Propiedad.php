@@ -117,4 +117,38 @@ class Propiedad {
 
         return self::$errores;
     }
+
+
+    public static function all() {
+        $query = "SELECT * FROM propiedades";
+        
+        $resultado = self::consultarSQL($query);
+
+        return $resultado;
+    }
+
+    public static function consultarSQL($query) {
+        $resultado = self::$db->query($query);
+
+        $array = [];
+
+        while($registro = $resultado->fetch_assoc()){
+            $array[] = self::crearObjeto($registro);
+        }
+        
+        $resultado->free();
+
+        return $array;
+    }
+
+    protected static function crearObjeto($registro) {
+        $objeto = new self;
+
+        foreach($registro as $key => $value){
+            if(property_exists($objeto, $key)){
+                $objeto->$key = $value;
+            }
+        }        
+        return $objeto;
+    }
 }
