@@ -21,3 +21,8 @@
         echo "</pre>";
         exit;    
     }
+
+    function sanitizar($html) : string {
+        $sanitizar = htmlspecialchars($html);
+        return $sanitizar;
+    }
