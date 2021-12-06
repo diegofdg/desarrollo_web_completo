@@ -4,8 +4,10 @@
     estaAutenticado();    
     
     use App\Propiedad;
+    use App\Vendedor;
 
     $propiedades = Propiedad::all();
+    $vendedores = Vendedor::all();
    
     $resultado = $_GET['resultado'] ?? null;
 
