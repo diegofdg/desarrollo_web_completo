@@ -2,20 +2,20 @@
     <legend>Información General</legend>
 
     <label for="titulo">Titulo:</label>
-    <input type="text" id="titulo" name="titulo" placeholder="Titulo Propiedad" value="<?php echo sanitizar($propiedad->titulo); ?>">
+    <input type="text" id="titulo" name="propiedad[titulo]" placeholder="Titulo Propiedad" value="<?php echo sanitizar($propiedad->titulo); ?>">
 
     <label for="precio">Precio:</label>
-    <input type="number" id="precio" name="precio" placeholder="Precio Propiedad" value="<?php echo sanitizar($propiedad->precio); ?>">
+    <input type="number" id="precio" name="propiedad[precio]" placeholder="Precio Propiedad" value="<?php echo sanitizar($propiedad->precio); ?>">
 
     <label for="imagen">Imagen:</label>
-    <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
+    <input type="file" id="imagen" accept="image/jpeg, image/png" name="propiedad[imagen]">
 
     <?php if($propiedad->imagen) { ?>
         <img src="/imagenes/<?php echo $propiedad->imagen ?>" class="imagen-small "alt="imagen propiedad">
     <?php } ?>
 
     <label for="descripcion">Descripción:</label>
-    <textarea id="descripcion" name="descripcion"><?php echo sanitizar($propiedad->descripcion); ?></textarea>
+    <textarea id="descripcion" name="propiedad[descripcion]"><?php echo sanitizar($propiedad->descripcion); ?></textarea>
 </fieldset>
 
 <fieldset>
@@ -25,7 +25,7 @@
     <input 
         type="number" 
         id="habitaciones" 
-        name="habitaciones"
+        name="propiedad[habitaciones]"
         placeholder="Ej: 3" 
         min="1" 
         max="9"
@@ -36,7 +36,7 @@
     <input 
         type="number" 
         id="wc"
-        name="wc"
+        name="propiedad[wc]"
         placeholder="Ej: 3"
         min="1" 
         max="9"
@@ -47,7 +47,7 @@
     <input
         type="number"
         id="estacionamiento"
-        name="estacionamiento"
+        name="propiedad[estacionamiento]"
         placeholder="Ej: 3"
         min="1"
         max="9"

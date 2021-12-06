@@ -22,14 +22,11 @@
     $errores = [];
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $titulo = mysqli_real_escape_string( $db, $_POST['titulo']);
-        $precio = mysqli_real_escape_string( $db, $_POST['precio']);
-        $descripcion = mysqli_real_escape_string( $db, $_POST['descripcion']);
-        $habitaciones = mysqli_real_escape_string( $db, $_POST['habitaciones']);
-        $wc = mysqli_real_escape_string( $db, $_POST['wc']);
-        $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
-        $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedor']);
-        $creado = date('Y/m/d');
+        $args = $_POST['propiedad'];
+                
+        $propiedad->sincronizar($args);
+
+        debuguear($propiedad);
 
         $imagen = $_FILES['imagen'];
 
