@@ -2,6 +2,7 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
 
     use Intervention\Image\ImageManagerStatic as image;    
     
@@ -18,8 +19,7 @@
 
     $propiedad = Propiedad::find($id);
 
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db, $consulta);
+    $vendedores = Vendedor::all();
 
     $errores = Propiedad::getErrores();
 
@@ -38,7 +38,7 @@
         }
         
         if(empty($errores)) {
-            if($image){
+            if($_FILES['propiedad']['tmp_name']['imagen']){
                 $image->save(CARPETA_IMAGENES . $nombreImagen);
             }
                         
