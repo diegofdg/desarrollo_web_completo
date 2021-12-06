@@ -74,6 +74,13 @@ class Propiedad {
     } 
 
     public function setImagen($imagen) {
+        if($this->id) {
+            $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+            if($existeArchivo) {
+                unlink(CARPETA_IMAGENES . $this->imagen);
+            }
+        }
+        
         if($imagen){
             $this->imagen = $imagen;
         }
