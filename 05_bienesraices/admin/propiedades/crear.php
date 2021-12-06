@@ -2,18 +2,16 @@
     require '../../includes/app.php';  
     
     use App\Propiedad;
+    use App\Vendedor;
 
     use Intervention\Image\ImageManagerStatic as Image;
     
     estaAutenticado();
     
-    $db = conectarDB();
-
     $propiedad = new Propiedad;
-    
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db, $consulta);
 
+    $vendedores = Vendedor::all();
+    
     $errores = Propiedad::getErrores();
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {

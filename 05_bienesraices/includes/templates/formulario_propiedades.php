@@ -56,5 +56,17 @@
 </fieldset>
 
 <fieldset>
-    <legend>Vendedor</legend>    
+    <legend>Vendedor</legend>   
+
+    <label for="vendedor">Vendedor</label>
+    <select name="propiedad[vendedorId]" id="vendedor">
+        <option value="">-- Seleccione --</option>
+        <?php foreach($vendedores as $vendedor) { ?>
+            <option 
+                <?php echo $propiedad->vendedorId === $vendedor->id ? 'selected' : '' ?>
+                value="<?php echo sanitizar($vendedor->id); ?>"
+            ><?php echo sanitizar($vendedor->nombre) . " " . sanitizar($vendedor->apellido); ?> 
+            </option>
+        <?php } ?>
+    </select>
 </fieldset>
