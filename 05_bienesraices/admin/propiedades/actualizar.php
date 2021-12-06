@@ -38,9 +38,11 @@
         }
         
         if(empty($errores)) {
-            $image->save(CARPETA_IMAGENES . $nombreImagen);
-            
-            $resultado = $propiedad->guardar();
+            if($image){
+                $image->save(CARPETA_IMAGENES . $nombreImagen);
+            }
+                        
+            $propiedad->guardar();
         }        
     }
     
