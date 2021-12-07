@@ -15,8 +15,6 @@
         header('Location: /admin');
     }
 
-    $db = conectarDB();
-
     $propiedad = Propiedad::find($id);
 
     $vendedores = Vendedor::all();

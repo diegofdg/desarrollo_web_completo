@@ -6,11 +6,27 @@
     
     estaAutenticado();
 
-    $vendedor = new Vendedor;
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    
+    if(!$id) {
+        header('Location: /admin');
+    }
+
+    $vendedor = Vendedor::find($id);
 
     $errores = Vendedor::getErrores();
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $args = $_POST['vendedor'];
+                
+        $vendedor->sincronizar($args);                
+
+        $errores = $vendedor->validar();        
+
+        if(empty($errores)) {
+            $vendedor->guardar();
+        }   
 
     }
 
@@ -26,7 +42,7 @@
             </div>
         <?php endforeach; ?>
 
-        <form class="formulario" method="POST" action="/admin/vendedores/actualizar.php">
+        <form class="formulario" method="POST">
             <?php include '../../includes/templates/formulario_vendedores.php'; ?>
             <input type="submit" value="Guardar Cambios" class="boton boton-verde">
         </form>
