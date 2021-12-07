@@ -26,3 +26,8 @@
         $sanitizar = htmlspecialchars($html);
         return $sanitizar;
     }
+
+    function validadTipoContenido($tipo){
+        $tipos = ['propiedad', 'vendedor'];
+        return in_array($tipo, $tipos);
+    }
