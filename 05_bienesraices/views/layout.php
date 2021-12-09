@@ -31,7 +31,7 @@
                     <img src="/build/img/barras.svg" alt="icono menu responsive">
                 </div>
                 <div class="derecha">
-                    <img class="dark-mode-boton" src="/build/img/dark-mode.svg">
+                    <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="icono dark mode">
                     
                     <nav class="navegacion">
                         <a href="nosotros.php">Nosotros</a>

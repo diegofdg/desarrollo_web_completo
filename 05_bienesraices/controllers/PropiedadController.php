@@ -1,11 +1,16 @@
 <?php
     namespace Controllers;
     use MVC\Router;
+    use Model\Propiedad;
 
     class PropiedadController {
-        public static function index(Router $router) {            
+        public static function index(Router $router) {  
+            $propiedades = Propiedad::all();
+            $resultado = null;
+
             $router->render('propiedades/admin', [
-                'mensaje' => 'Desde la vista'
+                'propiedades' => $propiedades,
+                'resultado' => $resultado
             ]);
         }
 
