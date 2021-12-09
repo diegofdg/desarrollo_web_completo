@@ -5,6 +5,6 @@
 
     $db = conectarDB();
 
-    use App\ActiveRecord;
+    use Model\ActiveRecord;
 
     ActiveRecord::setDB($db);
