@@ -25,5 +25,9 @@ class Router {
         } else {
             echo "Página no encontrada";
         }
-    }    
+    } 
+    
+    public function render($view) {
+        include __DIR__ . "/views/$view.php";
+    }
 }
