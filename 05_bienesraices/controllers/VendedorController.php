@@ -30,7 +30,20 @@
             
             $vendedor = Vendedor::find($id);
 
-            $errores = Vendedor::getErrores();            
+            $errores = Vendedor::getErrores();   
+
+            if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+                $args = $_POST['vendedor'];
+                        
+                $vendedor->sincronizar($args);                
+        
+                $errores = $vendedor->validar();        
+        
+                if(empty($errores)) {
+                    $vendedor->guardar();
+                }   
+            }         
 
             $router->render('vendedores/actualizar', [
                 'vendedor' => $vendedor,
