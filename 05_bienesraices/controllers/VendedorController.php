@@ -25,8 +25,17 @@
             ]);
         }
 
-        public static function actualizar() {
-            echo "Actualizar vendedor";
+        public static function actualizar(Router $router) {
+            $id = validarORedireccionar('/admin');
+            
+            $vendedor = Vendedor::find($id);
+
+            $errores = Vendedor::getErrores();            
+
+            $router->render('vendedores/actualizar', [
+                'vendedor' => $vendedor,
+                'errores' => $errores
+            ]);
         }
 
         public static function eliminar() {
