@@ -46,6 +46,8 @@
 
         public static function contacto(Router $router) {
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $respuestas = $_POST['contacto'];
+                
                 $mail = new PHPMailer();
 
                 $mail->isSMTP();            
@@ -59,11 +61,22 @@
                 $mail->setFrom('admin@bienesraices.com');
                 $mail->addAddress('admin@bienesraices.com', 'BienesRaices.com');
                 $mail->Subject = 'Tienes un nuevo mensaje';
-                
+
                 $mail->isHTML(true);
                 $mail->CharSet = 'UTF-8';
 
-                $contenido = '<html> <p> Tienes un nuevo mensaje </p> </html>';
+                $contenido = '<html>';
+                $contenido .= '<p> Tienes un nuevo mensaje </p>';
+                $contenido .= '<p> Nombre: ' . $respuestas['nombre'] . '</p>';
+                $contenido .= '<p> Email: ' . $respuestas['email'] . '</p>';
+                $contenido .= '<p> Teléfono: ' . $respuestas['telefono'] . '</p>';
+                $contenido .= '<p> Mensaje: ' . $respuestas['mensaje'] . '</p>';
+                $contenido .= '<p> Vende o Compra: ' . $respuestas['tipo'] . '</p>';
+                $contenido .= '<p> Precio o Presupuesto: $ ' . $respuestas['precio'] . '</p>';
+                $contenido .= '<p> Prefiere ser contactado por: ' . $respuestas['contacto'] . '</p>';
+                $contenido .= '<p> Fecha Contacto: ' . $respuestas['fecha'] . '</p>';
+                $contenido .= '<p> Hora Contacto: ' . $respuestas['hora'] . '</p>';
+                $contenido .= '</html>';
 
                 $mail->Body = $contenido;
                 $mail->AltBody = 'Esto es texto alternativo sin HTML';
