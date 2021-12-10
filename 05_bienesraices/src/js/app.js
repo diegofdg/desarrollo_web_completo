@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function eventListeners() {
     const mobileMenu = document.querySelector('.mobile-menu');
-
     mobileMenu.addEventListener('click', navegacionResponsive);
+
+    const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
+    metodoContacto.forEach(input => input.addEventListener('click', mostrarMetodosContacto));   
 }
 
 function navegacionResponsive() {
@@ -37,4 +39,8 @@ function darkMode() {
     botonDarkMode.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
     });
+}
+
+function mostrarMetodosContacto() {
+    console.log("seleccionando");
 }
