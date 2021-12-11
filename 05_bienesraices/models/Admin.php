@@ -2,9 +2,6 @@
 
 namespace Model;
 
-use MVC\Router;
-
-
 class Admin extends ActiveRecord {
     protected static $tabla = 'usuarios';
     protected static $columnasDB = ['id','email', 'password'];
@@ -15,8 +12,8 @@ class Admin extends ActiveRecord {
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
-        $this->email = $args['id'] ?? '';
-        $this->password = $args['id'] ?? '';
+        $this->email = $args['email'] ?? '';
+        $this->password = $args['password'] ?? '';
     }
 
     public function validar() {
@@ -27,5 +24,17 @@ class Admin extends ActiveRecord {
             self::$errores[] = 'El password es obligatorio';
         }
         return self::$errores;
+    }
+
+    public function existeUsuario() {
+        $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+        
+        $resultado = self::$db->query($query);        
+
+        if(!$resultado->num_rows) {
+            self::$errores[] = 'El usuario no existe';
+            return;
+        }
+        return $resultado;
     }
 }
