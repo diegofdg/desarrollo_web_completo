@@ -33,9 +33,9 @@
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="icono dark mode">
                     
-                    <nav class="navegacion">
+                    <nav class="navegacion" data-cy="navegacion-header">
                         <a href="/nosotros">Nosotros</a>
-                        <a href="/propiedades">Anuncios</a>
+                        <a href="/propiedades">Propiedades</a>
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
 
@@ -58,14 +58,14 @@
 
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.php">Nosotros</a>
-                <a href="anuncios.php">Anuncios</a>
-                <a href="blog.php">Blog</a>
-                <a href="contacto.php">Contacto</a>
+            <nav class="navegacion" data-cy="navegacion-footer">
+                <a href="/nosotros">Nosotros</a>
+                <a href="/propiedades">Propiedades</a>
+                <a href="/blog">Blog</a>
+                <a href="/contacto">Contacto</a>
             </nav>
         </div>
-        <p class="copyright">Todos los Derechos Reservados <?php echo date('Y') ?> &copy;</p>
+        <p class="copyright" data-cy="copyright">Todos los Derechos Reservados <?php echo date('Y') ?> &copy;</p>
     </footer>
 
     <script src="../build/js/bundle.js"></script>    
