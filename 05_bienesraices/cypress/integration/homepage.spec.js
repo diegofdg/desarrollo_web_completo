@@ -59,4 +59,15 @@ describe('Carga la página principal', () => {
 		cy.wait(1000);
 		cy.visit('/');
 	});
+
+	it('Prueba los Testimoniales y el Blog', () => {
+		cy.get('[data-cy="blog"]').should('exist');
+		cy.get('[data-cy="blog"]').find('h3').invoke('text').should('equal', 'Nuestro Blog');
+		cy.get('[data-cy="blog"]').find('h3').invoke('text').should('not.equal', 'Blog');
+		cy.get('[data-cy="blog"]').find('img').should('have.length', 2);
+
+		cy.get('[data-cy="testimoniales"]').should('exist');
+		cy.get('[data-cy="testimoniales"]').find('h3').invoke('text').should('equal', 'Testimoniales');
+		cy.get('[data-cy="testimoniales"]').find('h3').invoke('text').should('not.equal', 'Nuestros Testimoniales');
+	});
 });
