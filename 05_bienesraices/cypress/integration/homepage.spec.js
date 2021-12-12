@@ -32,5 +32,17 @@ describe('Carga la página principal', () => {
 		cy.wait(1000);
 		
 		cy.go('back');
-	})
+	});
+
+	it('Prueba el Routing hacia todas las Propiedades', () => {
+		cy.get('[data-cy="todas-propiedades"]').should('exist');
+		cy.get('[data-cy="todas-propiedades"]').should('have.class', 'boton-verde');
+
+		cy.get('[data-cy="todas-propiedades"]').invoke('attr', 'href').should('equal', '/propiedades');
+		cy.get('[data-cy="todas-propiedades"]').click();
+		cy.get('[data-cy="heading-propiedades"]').invoke('text').should('equal', 'Casas y Depas en Venta');
+
+		cy.wait(1000);
+		cy.go('back');
+	});
 });
