@@ -91,7 +91,7 @@
                 $mail->AltBody = 'Esto es texto alternativo sin HTML';
 
                 if($mail->send()) {
-                    $mensaje = "Mensaje enviado correctamente";
+                    $mensaje = "Mensaje Enviado Correctamente";
                 } else {
                     $mensaje = "El mensaje no se pudo enviar";
                 }
