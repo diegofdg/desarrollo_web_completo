@@ -45,4 +45,18 @@ describe('Carga la página principal', () => {
 		cy.wait(1000);
 		cy.go('back');
 	});
+
+	it('Prueba el Bloque de Contacto', () => {
+		cy.get('[data-cy="imagen-contacto"]').should('exist');
+		cy.get('[data-cy="imagen-contacto"]').find('h2').invoke('text').should('equal', 'Encuentra la casa de tus sueños');		
+		cy.get('[data-cy="imagen-contacto"]').find('p').invoke('text').should('equal', 'Llena el formulario de contacto y un asesor se pondrá en contacto contigo a la brevedad');
+		cy.get('[data-cy="imagen-contacto"]').find('a').invoke('attr', "href")
+			.then( href => {
+				cy.visit(href)
+			});
+		cy.get('[data-cy="heading-contacto"]').should('exist');
+
+		cy.wait(1000);
+		cy.visit('/');
+	});
 });
