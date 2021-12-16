@@ -19,7 +19,19 @@ class LoginController {
 
                 if($usuario) {                    
                     if( $usuario->comprobarPasswordAndVerificado($auth->password) ) {
-                        
+                        session_start();
+
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
+
+                        if($usuario->admin === "1") {
+                            $_SESSION['admin'] = $usuario->admin ?? null;
+                            header('Location: /admin');
+                        } else {
+                            header('Location: /cita');
+                        }
                     }
                 } else {
                     Usuario::setAlerta('error', 'Usuario no encontrado');
