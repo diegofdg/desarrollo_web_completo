@@ -83,8 +83,8 @@ class LoginController {
         ]);
     }
 
-    public static function recuperar() {
-        echo 'Desde recuperar';
+    public static function recuperar(Router $router) {
+        $router->render('auth/recuperar-password', []);
     }
 
     public static function crear(Router $router) {  
