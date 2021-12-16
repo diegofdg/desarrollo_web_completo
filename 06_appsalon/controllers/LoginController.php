@@ -65,6 +65,9 @@ class LoginController {
                     $usuario->crearToken();
                     $usuario->guardar();
 
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email->enviarInstrucciones();
+
                     Usuario::setAlerta('exito', 'Revisa tu email');
 
                 } else {
