@@ -9,7 +9,14 @@ function iniciarApp() {
 }
 
 function mostrarSeccion() {
-    
+    const seccionAnterior = document.querySelector('.mostrar');
+    if(seccionAnterior) {
+        seccionAnterior.classList.remove('mostrar');
+    }
+
+    const pasoSelector = `#paso-${paso}`;
+    const seccion = document.querySelector(pasoSelector);
+    seccion.classList.add('mostrar');    
 }
 
 function tabs() {
