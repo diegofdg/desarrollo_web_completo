@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() {
+    mostrarSeccion();
     tabs();
 }
 
@@ -16,7 +17,15 @@ function mostrarSeccion() {
 
     const pasoSelector = `#paso-${paso}`;
     const seccion = document.querySelector(pasoSelector);
-    seccion.classList.add('mostrar');    
+    seccion.classList.add('mostrar');   
+    
+    const tabAnterior = document.querySelector('.actual');
+    if(tabAnterior) {
+        tabAnterior.classList.remove('actual');
+    }
+
+    const tab = document.querySelector(`[data-paso="${paso}"]`);
+    tab.classList.add('actual');
 }
 
 function tabs() {
