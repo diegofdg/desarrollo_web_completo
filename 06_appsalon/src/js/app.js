@@ -187,7 +187,6 @@ function seleccionarHora() {
         } else {
             cita.hora = e.target.value;            
         }
-        console.log(cita)
     });
 }
 
@@ -224,16 +223,11 @@ function mostrarResumen() {
         return;
     }
 
-    const { nombre, fecha, hora, servicios } = cita;
+    const { nombre, fecha, hora, servicios } = cita;    
 
-    const nombreCliente = document.createElement('P');
-    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
-
-    const fechaCita = document.createElement('P');
-    fechaCita.innerHTML = `<span>Fecha:</span> ${fecha}`;
-
-    const horaCita = document.createElement('P');
-    horaCita.innerHTML = `<span>Hora:</span> ${hora} Horas`;
+    const headingServicios = document.createElement('H3');
+    headingServicios.textContent = 'Resumen de Servicios';
+    resumen.appendChild(headingServicios);
 
     servicios.forEach(servicio => {
         const { id, precio, nombre } = servicio;
@@ -251,6 +245,19 @@ function mostrarResumen() {
 
         resumen.appendChild(contenedorServicio);
     });
+
+    const headingCita = document.createElement('H3');
+    headingCita.textContent = 'Resumen de Cita';
+    resumen.appendChild(headingCita);
+
+    const nombreCliente = document.createElement('P');
+    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
+
+    const fechaCita = document.createElement('P');
+    fechaCita.innerHTML = `<span>Fecha:</span> ${fecha}`;
+
+    const horaCita = document.createElement('P');
+    horaCita.innerHTML = `<span>Hora:</span> ${hora} Horas`;
 
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
