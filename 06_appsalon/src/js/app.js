@@ -189,17 +189,17 @@ function seleccionarHora() {
         const hora = horaCita.split(":")[0];
         if(hora < 10 || hora > 18) {
             e.target.value = '';
-            mostrarAlerta('Hora No Válida', 'error');
+            mostrarAlerta('Hora No Válida', 'error', '.formulario');
         } else {
             cita.hora = e.target.value;            
         }
     });
 }
 
-function mostrarAlerta(mensaje, tipo) {
+function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
     const alertaPrevia = document.querySelector('.alerta');
     if(alertaPrevia) {
-        return;
+        alertaPrevia.remove();
     }
 
     const alerta = document.createElement('DIV');
@@ -207,19 +207,21 @@ function mostrarAlerta(mensaje, tipo) {
     alerta.classList.add('alerta');
     alerta.classList.add(tipo);
 
-    const formulario = document.querySelector('.formulario');
-    formulario.appendChild(alerta);
-    
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
+    const referencia = document.querySelector(elemento);
+    referencia.appendChild(alerta);
+
+    if(desaparece) {
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+    }    
 }
 
 function mostrarResumen() {
     const resumen = document.querySelector('.contenido-resumen');
 
-    if(Object.values(cita).includes('')) {
-        console.log('Hacen falta datos');
+    if(Object.values(cita).includes('') || cita.servicios.length === 0 ) {
+        mostrarAlerta('Faltan datos de Servicios, Fecha u Hora', 'error', '.contenido-resumen', false);
     } else {
         console.log('Todo bien');
     }
