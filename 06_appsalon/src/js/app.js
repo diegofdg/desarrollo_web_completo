@@ -171,9 +171,30 @@ function seleccionarFecha() {
 
         if( [6, 0].includes(dia) ) {
             e.target.value = '';
-            console.log('Sábados y Domingos no abrimos')            
+            mostrarAlerta('Fines de semana no permitidos', 'error', '.formulario');
         } else {
             cita.fecha = e.target.value;
         }        
     });
+}
+
+function mostrarAlerta(mensaje, tipo) {
+    const alertaPrevia = document.querySelector('.alerta');
+    if(alertaPrevia) {
+        return;
+    }
+
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta');
+    alerta.classList.add(tipo);
+
+    const formulario = document.querySelector('.formulario');
+    formulario.appendChild(alerta);
+    
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
+    
+  
 }
