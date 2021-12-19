@@ -25,6 +25,7 @@ function iniciarApp() {
 
     nombreCliente();
     seleccionarFecha();
+    seleccionarHora();
 }
 
 function mostrarSeccion() {
@@ -178,6 +179,20 @@ function seleccionarFecha() {
     });
 }
 
+function seleccionarHora() {
+    const inputHora = document.querySelector('#hora');
+    inputHora.addEventListener('input', function(e) {
+        const horaCita = e.target.value;
+        const hora = horaCita.split(":")[0];
+        if(hora < 10 || hora > 18) {
+            e.target.value = '';
+            mostrarAlerta('Hora No Válida', 'error');
+        } else {
+            cita.hora = e.target.value;            
+        }
+    });
+}
+
 function mostrarAlerta(mensaje, tipo) {
     const alertaPrevia = document.querySelector('.alerta');
     if(alertaPrevia) {
@@ -195,6 +210,4 @@ function mostrarAlerta(mensaje, tipo) {
     setTimeout(() => {
         alerta.remove();
     }, 3000);
-    
-  
 }
