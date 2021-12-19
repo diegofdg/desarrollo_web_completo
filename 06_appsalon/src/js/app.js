@@ -140,9 +140,13 @@ function mostrarServicios(servicios) {
     });
 }
 
-function seleccionarServicio(servicio) {        
+function seleccionarServicio(servicio) {
+    const { id } = servicio;     
     const { servicios } = cita;
-
     cita.servicios = [...servicios, servicio];
+
+    const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
+    divServicio.classList.add('seleccionado');
+
     console.log(cita);    
 }    
