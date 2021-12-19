@@ -26,6 +26,8 @@ function iniciarApp() {
     nombreCliente();
     seleccionarFecha();
     seleccionarHora();
+
+    mostrarResumen();
 }
 
 function mostrarSeccion() {
@@ -69,7 +71,8 @@ function botonesPaginador() {
         paginaSiguiente.classList.remove('ocultar');
     } else if (paso === 3) {
         paginaAnterior.classList.remove('ocultar');
-        paginaSiguiente.classList.add('ocultar');        
+        paginaSiguiente.classList.add('ocultar');
+        mostrarResumen();      
     } else {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
@@ -210,4 +213,14 @@ function mostrarAlerta(mensaje, tipo) {
     setTimeout(() => {
         alerta.remove();
     }, 3000);
+}
+
+function mostrarResumen() {
+    const resumen = document.querySelector('.contenido-resumen');
+
+    if(Object.values(cita).includes('')) {
+        console.log('Hacen falta datos');
+    } else {
+        console.log('Todo bien');
+    }
 }
