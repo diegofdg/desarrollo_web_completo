@@ -282,5 +282,7 @@ function mostrarResumen() {
 }
 
 function reservarCita() {
-    console.log('Reservando cita');
+    const datos = new FormData();
+    
+    datos.append('nombre', 'Juan');   
 }
