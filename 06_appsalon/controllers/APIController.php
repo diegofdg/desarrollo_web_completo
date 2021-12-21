@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Model\Cita;
+use Model\CitaServicio;
 use Model\Servicio;
 
 class APIController {
@@ -16,7 +17,20 @@ class APIController {
         $cita = new Cita($_POST);
         $resultado = $cita->guardar();
 
-        echo json_encode($resultado);        
+        $id = $resultado['id'];
+        
+        $idServicios = explode(",", $_POST['servicios']);
+
+        foreach($idServicios as $idServicio) {
+            $args = [
+                'citaId' => $id,
+                'servicioId' => $idServicio
+            ];
+            $citaServicio = new CitaServicio($args);
+            $citaServicio->guardar();
+        }
+
+        echo json_encode(['resultado' => $resultado]);      
     }
 
     public static function eliminar() {        
