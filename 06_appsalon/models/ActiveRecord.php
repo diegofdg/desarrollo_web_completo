@@ -116,6 +116,11 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+    public static function SQL($query) {
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     public function crear() {
         $atributos = $this->sanitizarAtributos();        
 
