@@ -14,11 +14,11 @@ class LoginController {
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión'
         ]);
-    }    
+    }
 
     public static function logout() {
         echo "Desde logout";
-    }    
+    }
 
     public static function crear(Router $router) {
         
@@ -29,10 +29,9 @@ class LoginController {
         $router->render('auth/crear', [
             'titulo' => 'Crea tu cuenta en UpTask'
         ]);
-    }    
+    }
 
-    public static function olvide(Router $router) {
-        
+    public static function olvide(Router $router) {        
         
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -41,8 +40,7 @@ class LoginController {
         $router->render('auth/olvide', [
             'titulo' => 'Olvide mi Password'
         ]);
-        
-    }    
+    }
 
     public static function restablecer(Router $router) {         
         
@@ -52,18 +50,18 @@ class LoginController {
 
         $router->render('auth/restablecer', [
             'titulo' => 'Restablecer Password'
-        ]);        
-    }    
+        ]);
+    }
 
     public static function mensaje(Router $router) {
         $router->render('auth/mensaje', [
             'titulo' => 'Cuenta Creada Exitosamente'
-        ]);        
-        
-    }    
+        ]);
+    }
 
-    public static function confirmar() {
-        echo "Desde confirmar";           
-    
-    }    
+    public static function confirmar(Router $router) {
+        $router->render('auth/confirmar', [
+            'titulo' => 'Confirma tu cuenta UpTask'
+        ]);
+    }
 }
