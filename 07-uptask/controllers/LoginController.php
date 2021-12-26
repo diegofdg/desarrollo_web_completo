@@ -37,18 +37,22 @@ class LoginController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
-        
+
         $router->render('auth/olvide', [
             'titulo' => 'Olvide mi Password'
         ]);
+        
     }    
 
-    public static function restablecer() {
-        echo "Desde restablecer";    
+    public static function restablecer(Router $router) {         
         
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
+
+        $router->render('auth/restablecer', [
+            'titulo' => 'Restablecer Password'
+        ]);        
     }    
 
     public static function mensaje() {
