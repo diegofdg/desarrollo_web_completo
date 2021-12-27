@@ -23,8 +23,11 @@ class DashboardController {
 
         isAuth();
 
+        $alertas = [];
+
         $router->render('dashboard/crear-proyecto', [
-            'titulo' => 'Crear Proyecto'
+            'titulo' => 'Crear Proyecto',
+            'alertas' => $alertas
         ]);
     }
 
