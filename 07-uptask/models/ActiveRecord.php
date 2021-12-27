@@ -143,9 +143,15 @@ class ActiveRecord {
     public function sanitizarAtributos() {
         $atributos = $this->atributos();
         $sanitizado = [];
+
         foreach($atributos as $key => $value ) {
-            $sanitizado[$key] = self::$db->escape_string($value);
+            if(is_null($value)){
+                $sanitizado[$key] = $value;
+            } else {
+                $sanitizado[$key] = self::$db->escape_string($value);
+            }
         }
+        
         return $sanitizado;
     }
 
