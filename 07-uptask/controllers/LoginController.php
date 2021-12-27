@@ -67,7 +67,14 @@ class LoginController {
             $alertas = $usuario->validarEmail();
 
             if(empty($alertas)) {
-                
+                $usuario = Usuario::where('email', $usuario->email);
+
+                if($usuario && $usuario->confirmado) {
+
+                } else {
+                    Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
+                    $alertas = Usuario::getAlertas();
+                }
             }
         }
 
