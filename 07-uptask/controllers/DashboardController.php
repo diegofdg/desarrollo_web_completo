@@ -32,7 +32,14 @@ class DashboardController {
             $alertas = $proyecto->validarProyecto();
 
             if(empty($alertas)) {
-                debuguear($proyecto);
+                $hash = md5(uniqid());
+                $proyecto->url = $hash;
+                
+                $proyecto->propietarioId = $_SESSION['id'];
+
+                $proyecto->guardar();
+
+                header('Location: /proyecto?id=' . $proyecto->url);
             }
         }
 
