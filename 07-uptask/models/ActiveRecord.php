@@ -60,6 +60,12 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+    public static function belongsTo($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} = '${valor}'";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     public static function SQL($consulta) {
         $query = $consulta;
         $resultado = self::consultarSQL($query);
