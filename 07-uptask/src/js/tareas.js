@@ -75,8 +75,24 @@
         }, 5000);
     }
 
-    function agregarTarea(tarea) {
+    async function agregarTarea(tarea) {
+        const datos = new FormData();
+        datos.append('nombre', tarea);        
 
+        try {
+            const url = 'http://localhost:3000/api/tarea';
+            const respuesta = await fetch(url, {
+                method: 'POST',
+                body: datos
+            });
+            
+            const resultado = await respuesta.json();
+
+            console.log(resultado);
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 })();
