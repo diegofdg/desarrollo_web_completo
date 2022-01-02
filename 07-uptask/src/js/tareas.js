@@ -78,7 +78,7 @@
     async function agregarTarea(tarea) {
         const datos = new FormData();
         datos.append('nombre', tarea);
-        datos.append('proyectoId', obtenerProyecto());
+        datos.append('proyectoId', obtenerProyecto());        
 
         try {
             const url = 'http://localhost:3000/api/tarea';
@@ -90,6 +90,8 @@
             const resultado = await respuesta.json();
 
             console.log(resultado);
+
+            mostrarAlerta(resultado.mensaje, resultado.tipo, document.querySelector('.formulario legend'));
 
         } catch (error) {
             console.log(error);
