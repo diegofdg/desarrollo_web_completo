@@ -47,13 +47,36 @@
                 const nombreTarea = document.querySelector('#tarea').value.trim();
 
                 if(nombreTarea === '') {                    
-                    console.log('El Nombre de la tarea es Obligatorio');
+                    mostrarAlerta('El Nombre de la tarea es Obligatorio', 'error', document.querySelector('.formulario legend'));
                     return;
                 }
+
+                agregarTarea(nombreTarea);
             }
         });
 
-        document.querySelector('body').appendChild(modal);
-    }   
+        document.querySelector('.dashboard').appendChild(modal);
+    }
+
+    function mostrarAlerta(mensaje, tipo, referencia) {
+        const alertaPrevia = document.querySelector('.alerta');
+        if(alertaPrevia) {
+            alertaPrevia.remove();
+        }
+
+        const alerta = document.createElement('DIV');
+        alerta.classList.add('alerta', tipo);
+        alerta.textContent = mensaje;
+
+        referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+        setTimeout(() => {
+            alerta.remove();
+        }, 5000);
+    }
+
+    function agregarTarea(tarea) {
+
+    }
 
 })();
