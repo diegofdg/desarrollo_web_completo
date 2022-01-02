@@ -46,19 +46,10 @@
             if(e.target.classList.contains('submit-nueva-tarea')) {
                 const nombreTarea = document.querySelector('#tarea').value.trim();
 
-                if(nombreTarea === '') {
-                    // Mostrar una alerta de error
-                    mostrarAlerta('El Nombre de la tarea es Obligatorio', 'error', document.querySelector('.formulario legend'));
+                if(nombreTarea === '') {                    
+                    console.log('El Nombre de la tarea es Obligatorio');
                     return;
-                } 
-
-                if(editar) {
-                    tarea.nombre = nombreTarea;
-                    actualizarTarea(tarea);
-                } else {
-                    agregarTarea(nombreTarea);
                 }
-                
             }
         });
 
