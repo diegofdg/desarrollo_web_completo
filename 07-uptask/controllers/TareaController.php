@@ -9,6 +9,11 @@ class TareaController {
 
     public static function crear() {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $respuesta = [
+                'proyectoId'=> $_POST['proyectoId']
+            ];
+            
             echo json_encode($_POST);
         }
     } 

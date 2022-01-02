@@ -77,7 +77,8 @@
 
     async function agregarTarea(tarea) {
         const datos = new FormData();
-        datos.append('nombre', tarea);        
+        datos.append('nombre', tarea);
+        datos.append('proyectoId', obtenerProyecto());
 
         try {
             const url = 'http://localhost:3000/api/tarea';
@@ -93,6 +94,12 @@
         } catch (error) {
             console.log(error);
         }
+    }
+
+    function obtenerProyecto() {
+        const proyectoParams = new URLSearchParams(window.location.search);
+        const proyecto = Object.fromEntries(proyectoParams.entries());
+        return proyecto.id;
     }
 
 })();
