@@ -135,7 +135,12 @@
                     return;
                 }
 
-                agregarTarea(nombreTarea);
+                if(editar) {
+                    tarea.nombre = nombreTarea;
+                    actualizarTarea(tarea);
+                } else {
+                    agregarTarea(nombreTarea);
+                }
             }
         });
 
