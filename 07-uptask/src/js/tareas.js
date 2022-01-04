@@ -4,7 +4,9 @@
     let tareas = [];    
 
     const nuevaTareaBtn = document.querySelector('#agregar-tarea');
-    nuevaTareaBtn.addEventListener('click', mostrarFormulario);
+    nuevaTareaBtn.addEventListener('click', function() {
+        mostrarFormulario();
+    });
 
     async function obtenerTareas() {
         try {
@@ -47,6 +49,9 @@
 
             const nombreTarea = document.createElement('P');
             nombreTarea.textContent = tarea.nombre;
+            nombreTarea.ondblclick = function() {
+                mostrarFormulario(editar = true, {...tarea});
+            }
             
             const opcionesDiv = document.createElement('DIV');
             opcionesDiv.classList.add('opciones');
@@ -81,26 +86,27 @@
         });
     }
     
-    function mostrarFormulario() {
+    function mostrarFormulario(editar = false, tarea = {}) {
         const modal = document.createElement('DIV');
         modal.classList.add('modal');
         modal.innerHTML = `
             <form class="formulario nueva-tarea">
-                <legend>Añade una nueva tarea</legend>
+                <legend>${editar ? 'Editar Tarea' : 'Añade una nueva tarea'}</legend>
                 <div class="campo">
                     <label>Tarea</label>
                     <input 
                         type="text"
                         name="tarea"
-                        placeholder="Añadir Tarea al Proyecto Actual"
-                        id="tarea"                        
+                        placeholder="${tarea.nombre ? 'Edita la Tarea' : 'Añadir Tarea al Proyecto Actual'}"
+                        id="tarea"
+                        value="${tarea.nombre ? tarea.nombre : ''}"
                     />
                 </div>
                 <div class="opciones">
                     <input 
                         type="submit" 
                         class="submit-nueva-tarea" 
-                        value="Añadir Tarea" 
+                        value="${tarea.nombre ? 'Guardar Cambios' : 'Añadir Tarea'} " 
                     />
                     <button type="button" class="cerrar-modal">Cancelar</button>
                 </div>
