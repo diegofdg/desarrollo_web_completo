@@ -15,5 +15,12 @@ if(cerrarMenuBtn) {
             sidebar.classList.remove('mostrar');
             sidebar.classList.remove('ocultar');
         }, 1000);
-    })
+    });
 }
+
+window.addEventListener('resize', function() {
+    const anchoPantalla = document.body.clientWidth;
+    if(anchoPantalla >= 768) {
+        sidebar.classList.remove('mostrar');
+    }
+});
