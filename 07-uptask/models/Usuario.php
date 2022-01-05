@@ -106,6 +106,10 @@ class Usuario extends ActiveRecord {
         return self::$alertas;
     }
 
+    public function comprobar_password() : bool {
+        return password_verify($this->password_actual, $this->password );
+    }
+
     public function hashPassword() : void {
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
