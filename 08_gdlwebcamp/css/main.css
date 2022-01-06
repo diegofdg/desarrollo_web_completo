@@ -99,15 +99,20 @@ textarea {
    ========================================================================== */
 
 html {
-    box-sizing: border-box;     
+  box-sizing: border-box;     
 }
   
 *,*:before,*:after {
-    box-sizing: inherit;       
+  box-sizing: inherit;       
 }
   
 body {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
 }
   
 /** Header **/
@@ -145,6 +150,7 @@ nav.redes-sociales a:last-child {
 div.informacion-evento {
   text-align: center;
   color: #FFFFFF;
+  font-size: 2.4rem;
 }
   
 @media only screen and (min-width:768px) {
@@ -164,6 +170,7 @@ div.informacion-evento p {
   
 div.informacion-evento p i {
   color: #FE4918;
+  font-size: 2.4rem;
 }
   
 p.fecha {
@@ -173,6 +180,28 @@ p.fecha {
 p.ciudad {
   float: right;
   text-align: right;
+}
+
+p.slogan {
+  text-transform: none !important;
+}
+
+p.slogan span {
+  font-weight: bold;
+}
+
+h1.nombre-sitio {
+  font-size: 5.9vw;
+  text-transform: uppercase;
+  font-family: 'PT Sans', sans-serif;
+}
+
+@media only screen and (min-width:768px) {
+  h1.nombre-sitio {
+    font-size: 11.5vw;
+    margin: 0;
+    line-height: 1;
+  }
 }
 
 /* ==========================================================================
