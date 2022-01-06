@@ -235,6 +235,63 @@ div.barra {
   padding: 20px 0;
 }
 
+div.logo {
+  width: 80%;
+}
+
+div.logo img {
+  width: 100%;
+}
+
+@media only screen and (min-width:768px) {
+  div.logo {
+    width: 33%;
+    float: left;
+  }
+}
+
+/** Navegación principal **/
+nav.navegacion-principal {
+  display: none;
+}
+
+nav.navegacion-principal a {
+  font-family: 'Oswald', sans-serif;
+  color: #FFFFFF;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .6s ease;
+}
+
+nav.navegacion-principal a:hover {
+  background-color: #FE4918;
+}
+
+nav.navegacion-principal a:last-child {
+  border: 2px solid #FE4918;
+  color: #FE4918;
+}
+
+nav.navegacion-principal a:last-child:hover {  
+  color: #FFFFFF;
+}
+
+@media only screen and (min-width:768px) {
+  nav.navegacion-principal {
+    width: 67%;
+    float: right;
+    text-align: right;    
+    display: block;
+  }
+
+  nav.navegacion-principal a {
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-block;
+  }
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
