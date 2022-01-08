@@ -90,6 +90,7 @@
                 </div>
                 <div id="error"></div>
             </div>
+            
             <div id="paquetes" class="paquetes">
                 <h3>Elige el número de boletos</h3>
                 <ul class="lista-precios clearfix">
@@ -303,6 +304,42 @@
                         </div>
                     </div>   
                 </div>            
+            </div>
+
+            <div id="resumen" class="resumen">
+                <h3>Pago y Extras</h3>
+                <div class="caja clearfix">
+                    <div class="extras">
+                        <div class="orden">
+                            <label for="camisa_evento">Camisa del evento $10 <small>(promocion 7% dto.)</small></label>
+                            <input type="number" min="0" id="camisa_evento" size="3" placeholder="0">                            
+                        </div>                        
+                        <div class="orden">
+                            <label for="etiquetas">Paquete de 10 etiquetas $2 <small>(HTML5, CSS3, JavaScript, Chrome)</small></label>
+                            <input type="number" min="0" id="etiquetas" size="3" placeholder="0">
+                        </div>                        
+                        <div class="orden">
+                            <label for="regalo">Seleccione un regalo</label> <br>
+                            <select id="regalo" name="regalo" required>
+                                <option value="">-- Seleccione un regalo --</option>
+                                <option value="ETI">Etiquetas</option>
+                                <option value="PUL">Pulsera</option>
+                                <option value="PLU">Plumas</option>
+                            </select>
+                        </div>
+                        <input type="button" id="calcular" class="button" value="Calcular">
+                    </div>                    
+
+                    <div class="total">
+                        <p>Resumen:</p>
+                        <div id="lista-productos">
+                        </div>
+                        <p>Total:</p>
+                        <div id="suma-total">
+                        </div>
+                        <input id="btnRegistro" type="submit" class="button" value="Pagar">                        
+                    </div>                
+                </div>                
             </div>
         </form>
     </section>    
