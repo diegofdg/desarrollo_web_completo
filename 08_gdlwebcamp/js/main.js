@@ -16,6 +16,7 @@
         var errorDiv = document.getElementById('error');
         var botonRegistro = document.getElementById('btnRegistro');
         var lista_productos = document.getElementById('lista-productos');
+        var suma = document.getElementById('suma-total');
         var camisas = document.getElementById('camisa_evento');
         var etiquetas = document.getElementById('etiquetas');
 
@@ -57,10 +58,13 @@
                     listadoProductos.push(cantidadEtiquetas + ' Etiquetas');
                 }
 
+                lista_productos.style.display = 'block';
                 lista_productos.innerHTML = '';
+                                
                 for(var i = 0; i < listadoProductos.length; i++) {
                     lista_productos.innerHTML += listadoProductos[i] + '<br/>';
                 }
+                suma.innerHTML = '$' + totalPagar.toFixed(2);
             }
         }
     });
