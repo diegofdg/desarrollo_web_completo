@@ -493,6 +493,17 @@ div.invitado {
 
 div.invitado img {
   max-width: 100%;
+  filter: grayscale(1);;  
+  -webkit-filter: grayscale(1);
+  transition: all .5s;
+  -webkit-transition: all .5s;
+}
+
+div.invitado:hover img {  
+  filter: grayscale(0);;
+  -webkit-filter: grayscale(0);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
 }
 
 div.invitado p {
@@ -506,7 +517,14 @@ div.invitado p {
   text-align: left;
   font-family: 'Oswald', sans-serif;
   color: #FE4918;
-  text-transform: uppercase;
+  text-transform: uppercase;  
+  transition: all .5s;
+  -webkit-transition: all .5s;
+}
+
+div.invitado:hover p { 
+  bottom: -80px;
+  opacity: 0;
 }
 
 /* ==========================================================================
