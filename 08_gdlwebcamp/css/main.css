@@ -189,6 +189,15 @@ h3 {
   color: #FE4918;
 }
 
+.button.transparente {
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+}
+
+.button.transparente:hover {
+  border: 2px solid #FE4918;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -196,7 +205,7 @@ ul {
 }
 
 .button:hover {
-  background-color: #E33000;
+  background-color: #FE4918;
 }
 
 .float-right {
@@ -716,6 +725,36 @@ footer.info-testimonial span {
   display: block;
   text-transform: none;
   margin-top: 5px;
+}
+
+/** Newsletter **/
+div.newsletter {
+  position: relative;
+  height: auto;
+}
+
+div.newsletter::before {
+  background-image: url(../img/bg-newsletter.jpg);
+  content: '';
+}
+
+div.newsletter .contenido {
+  padding: 100px 0;
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+}
+
+div.newsletter .contenido p {
+  font-size: 1.2em;
+  text-transform: lowercase;
+}
+
+div.newsletter .contenido h3 {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 7vw;
+  font-family: 'PT Sans', sans-serif; 
 }
 
 /* ==========================================================================
