@@ -28,7 +28,7 @@
 
         nombre.addEventListener('blur', validarCampos);
         apellido.addEventListener('blur', validarCampos);
-        email.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarMail);
 
         function validarCampos() {
             if(this.value == '') {
@@ -40,7 +40,19 @@
                 errorDiv.style.display = 'none';
                 this.style.border = '1px solid #CCCCCC';
             }
-        };
+        }
+
+        function validarMail() {
+            if(this.value.indexOf("@") > -1) {
+                errorDiv.style.display = 'none';
+                this.style.border = '1px solid #CCCCCC';
+            } else {
+                errorDiv.style.display = 'block';
+                errorDiv.innerHTML = 'Debe tener algún @';
+                this.style.border = '1px solid red';
+                errorDiv.style.border = '1px solid red';
+            }
+        }
 
         function calcularMontos(e) {
             e.preventDefault;
