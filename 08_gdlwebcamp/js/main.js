@@ -11,7 +11,7 @@
         }).addTo(map);
 
         L.marker([20.674781, -103.38749]).addTo(map)
-            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+            bindPopup('GDLWebCamp 2021 <br> Boletos ya disponibles')
             .openPopup();
 
         var nombre = document.getElementById('nombre');
