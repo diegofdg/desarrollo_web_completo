@@ -495,8 +495,8 @@ div.invitado img {
   max-width: 100%;
   filter: grayscale(1);;  
   -webkit-filter: grayscale(1);
-  transition: all .5s;
-  -webkit-transition: all .5s;
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
 }
 
 div.invitado:hover img {  
@@ -518,8 +518,8 @@ div.invitado p {
   font-family: 'Oswald', sans-serif;
   color: #FE4918;
   text-transform: uppercase;  
-  transition: all .5s;
-  -webkit-transition: all .5s;
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
 }
 
 div.invitado:hover p { 
@@ -538,6 +538,8 @@ div.invitado:hover p {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  -webkit-filter: brightness(.8);
+  filter: brightness(.8);
 }
 div.contador {
   position: relative;
