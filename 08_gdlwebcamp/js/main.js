@@ -26,14 +26,21 @@
         pase_dosdias.addEventListener('blur', mostrarDias);
         pase_completo.addEventListener('blur', mostrarDias);
 
-        nombre.addEventListener('blur', function() {
+        nombre.addEventListener('blur', validarCampos);
+        apellido.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarCampos);
+
+        function validarCampos() {
             if(this.value == '') {
                 errorDiv.style.display = 'block';
                 errorDiv.innerHTML = 'Este campo es obligatorio';
                 this.style.border = '1px solid red';
                 errorDiv.style.border = '1px solid red';
+            } else {
+                errorDiv.style.display = 'none';
+                this.style.border = '1px solid #CCCCCC';
             }
-        });
+        };
 
         function calcularMontos(e) {
             e.preventDefault;
