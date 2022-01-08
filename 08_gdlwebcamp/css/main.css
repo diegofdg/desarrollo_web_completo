@@ -577,6 +577,46 @@ p.numero {
   font-size: 4em;
   display: block;
   margin: 0 0 10px 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+/** Tabla de precios **/
+ul.lista-precios > li {
+  padding: 10px;
+}
+
+@media only screen and (min-width:768px) {
+  ul.lista-precios > li {
+    float: left;
+    width: 33.3%;
+  }
+}
+
+div.tabla-precio {
+  border: 1px solid #e1e1e1;
+  background-color: #FFFFFF;
+  padding: 40px 0;
+  text-align: center;
+}
+
+div.tabla-precio ul li {
+  font-family: 'PT Sans', sans-serif; 
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #868686;
+  line-height: 26px;
+}
+
+div.tabla-precio h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+div.tabla-precio p.numero {
+  color: #000000;
+  margin: 20px 0;
 }
 
 /* ==========================================================================
