@@ -182,6 +182,12 @@ h3 {
   transition: all .3s ease;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .button:hover {
   background-color: #E33000;
 }
@@ -460,6 +466,47 @@ div.detalle-evento:nth-child(2) {
 div.detalle-evento p {
   margin-bottom: 20px;
   font-size: 20px;
+}
+
+/** Invitados **/
+ul.lista-invitados li {
+  padding: 10px;
+  float: left;
+}
+
+@media only screen and (min-width:480px) {
+  ul.lista-invitados li {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  ul.lista-invitados li {
+    width: 33.3%;
+  }
+}
+
+div.invitado {
+  position: relative;
+  overflow: hidden;
+}
+
+div.invitado img {
+  max-width: 100%;
+}
+
+div.invitado p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px 10px;
+  margin: 0;
+  background-color: rgba(0,0,0,.55);
+  width: 100%;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  color: #FE4918;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
