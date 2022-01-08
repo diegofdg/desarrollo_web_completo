@@ -180,6 +180,13 @@ h3 {
   margin-top: 20px;
   display: inline-block;
   transition: all .3s ease;
+  border: 2px solid;
+}
+
+.button.hollow,
+.button.hollow:hover {
+  background-color: white;
+  color: #FE4918;
 }
 
 ul {
@@ -599,6 +606,13 @@ div.tabla-precio {
   text-align: center;
 }
 
+div.tabla-precio:hover {
+  transform: scale(1.1);
+  border: 1px solid #FE4918;
+  box-shadow: 0px 0px 50px #666666;
+  transition: all .3s ease;
+}
+
 div.tabla-precio ul li {
   font-family: 'PT Sans', sans-serif; 
   font-size: 14px;
@@ -606,6 +620,12 @@ div.tabla-precio ul li {
   text-transform: uppercase;
   color: #868686;
   line-height: 26px;
+}
+
+div.tabla-precio ul li .fa-check {  
+  padding: 0 5px;
+  font-size: 20px;
+  color: green;  
 }
 
 div.tabla-precio h3 {
