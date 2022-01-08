@@ -4,16 +4,16 @@
     var regalo = document.getElementById('regalo');
     
     document.addEventListener('DOMContentLoaded', function() {
-        var map = L.map('mapa').setView([51.505, -0.09], 13);
+        var map = L.map('mapa').setView([20.674781, -103.38749], 17);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([51.5, -0.09]).addTo(map)
+        L.marker([20.674781, -103.38749]).addTo(map)
             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
             .openPopup();
-            
+
         var nombre = document.getElementById('nombre');
         var apellido = document.getElementById('apellido');
         var email = document.getElementById('email');
