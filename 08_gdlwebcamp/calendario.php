@@ -6,7 +6,7 @@
         <?php
             try {
                 require_once('includes/funciones/bd_conexion.php');
-                $sql = " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, nombre_invitado, apellido_invitado ";
+                $sql = " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
                 $sql .= " FROM eventos ";
                 $sql .= " INNER JOIN categoria_evento ";
                 $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
@@ -30,6 +30,7 @@
                         'fecha' => $eventos['fecha_evento'],
                         'hora' => $eventos['hora_evento'],
                         'categoria' => $eventos['cat_evento'],
+                        'icono' => $eventos['icono'],
                         'invitado' => $eventos['nombre_invitado'] . " " . $eventos['apellido_invitado']
                     );
 
@@ -49,11 +50,51 @@
                             // En Windows
                             // setlocale(LC_TIME, 'spanish');
                             // echo utf8_encode(strftime ("%A, %d de %B del %Y", strtotime($dia)));
+
+                            // Usando date_format no tiene soporte a Locale
+                            // $fechaFormateada = date_create($dia);
+                            // echo date_format($fechaFormateada,"l\, j F Y");
+
+                            $timestamp = strtotime($dia);
                             
-                            $fechaFormateada = date_create($dia);
-                            echo date_format($fechaFormateada,"l\, j F Y");
+                            $diaSemana = date('l', $timestamp);
+
+                            $fechaCompleta = '';
+
+                            if($diaSemana === 'Friday'){
+                                $fechaCompleta = 'Viernes';
+                            } else if ($diaSemana === 'Saturday'){
+                                $fechaCompleta = 'Sábado';
+                            } else if ($diaSemana = 'Sunday'){
+                                $fechaCompleta = 'Domingo';
+                            }
+                            
+                            $diaMes = date('j', $timestamp);
+
+                            $fechaCompleta .= ', ';
+                            $fechaCompleta .= $diaMes;
+                            $fechaCompleta .= ' de Diciembre de 2022';
+
+                            echo $fechaCompleta;
                         ?>
                     </h3>
+
+                    <?php foreach($lista_eventos as $evento) { ?>                        
+                        <p class="titulo">
+                            <?php echo $evento['titulo']; ?>
+                        </p>
+                        <p class="hora">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <?php echo $evento['fecha'] . " " . $evento['hora']; ?>
+                        </p>
+                        <p>                                
+                            <i class="fas <?php echo $evento['icono'] ?>" aria-hidden="true"></i>
+                            <?php echo $evento['categoria']; ?>
+                        </p>
+                        <p>
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                            <?php echo $evento['invitado']; ?>
+                <?php } ?>
             <?php } ?>
         </div>
 
