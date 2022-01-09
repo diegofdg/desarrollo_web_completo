@@ -79,28 +79,26 @@
                         ?>
                     </h3>
 
-                    <?php foreach($lista_eventos as $evento) { ?>                        
-                        <p class="titulo">
-                            <?php echo $evento['titulo']; ?>
-                        </p>
-                        <p class="hora">
-                            <i class="far fa-clock" aria-hidden="true"></i>
-                            <?php echo $evento['fecha'] . " " . $evento['hora']; ?>
-                        </p>
-                        <p>                                
-                            <i class="fas <?php echo $evento['icono'] ?>" aria-hidden="true"></i>
-                            <?php echo $evento['categoria']; ?>
-                        </p>
-                        <p>
-                            <i class="fas fa-user" aria-hidden="true"></i>
-                            <?php echo $evento['invitado']; ?>
+                    <?php foreach($lista_eventos as $evento) { ?>
+                        <div class="dia">
+                            <p class="titulo">
+                                <?php echo $evento['titulo']; ?>
+                            </p>
+                            <p class="hora">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <?php echo $evento['fecha'] . " " . $evento['hora']; ?>
+                            </p>
+                            <p>                                
+                                <i class="fas <?php echo $evento['icono'] ?>" aria-hidden="true"></i>
+                                <?php echo $evento['categoria']; ?>
+                            </p>
+                            <p>
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                <?php echo $evento['invitado']; ?>
+                        </div>
                 <?php } ?>
             <?php } ?>
         </div>
-
-        <pre>
-            <?php var_dump($calendario); ?>
-        </pre>
 
         <?php
             $conn->close();
