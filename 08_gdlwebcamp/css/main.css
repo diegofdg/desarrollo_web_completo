@@ -211,6 +211,64 @@ ul {
 .float-right {
   float: right;
 }
+
+/** Lettering **/
+h1.nombre-sitio span {
+  position: relative;
+  text-shadow: 0 0 30px black;
+}
+
+@media only screen and (min-width:992px) {
+  .char1 {
+    top: 20px;
+    right: 20px;
+  }
+
+  .char2 {
+    top: 0px;
+    left: -20px;
+  }
+
+  .char3 {
+    top: 10px;
+    right: 20px;
+  }
+
+  .char4 {
+    top: 5px;
+    right: 10px;
+  }
+
+  .char5 {
+    top: 15px;
+    right: 10px;
+  }
+
+  .char6 {
+    top: 5px;
+    left: 5px;
+  }
+
+  .char7 {
+    top: 20px;
+    left: 0px;
+  }
+
+  .char8 {
+    top: 0px;
+    left: 0px;
+  }
+
+  .char9 {
+    top: 10px;
+    left: 5px;
+  }
+  
+  .char10 {
+    top: 25px;
+    right: 5px;
+  }
+}
   
 /** Header **/
 div.hero {
