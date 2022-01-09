@@ -11,9 +11,10 @@
         }).addTo(map);
 
         L.marker([20.674781, -103.38749]).addTo(map)
-            bindPopup('GDLWebCamp 2021 <br> Boletos ya disponibles')
-            .openPopup();
-
+            .bindPopup('GDLWebCamp 2021 <br> Boletos ya disponibles')
+            .openPopup();   
+        /* L.scrollWheelZoom('center'); */
+        
         var nombre = document.getElementById('nombre');
         var apellido = document.getElementById('apellido');
         var email = document.getElementById('email');
@@ -139,7 +140,9 @@
     });
 })();
 
-$(function() {    
+$(function() {
+    $('.nombre-sitio').lettering();
+
     $('.programa-evento .info-curso:first').show(); 
     $('.menu-programa a:first').addClass('activo');    
     
