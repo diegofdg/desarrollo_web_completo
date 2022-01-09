@@ -143,6 +143,14 @@
 $(function() {
     $('.nombre-sitio').lettering();
 
+    var windowHeight = $(window).height();
+    var barraAltura = $('.barra').innerHight();
+
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+    });
+
     $('.programa-evento .info-curso:first').show(); 
     $('.menu-programa a:first').addClass('activo');    
     
