@@ -15,11 +15,11 @@
         ?>
         <div class="calendario">
             <?php
-                $eventos = $resultado->fetch_assoc();
-            ?>
-            <pre>
-                <?php var_dump($eventos); ?>
-            </pre>
+                while( $eventos = $resultado->fetch_assoc() ) { ?>
+                    <pre>
+                        <?php var_dump($eventos); ?>
+                    </pre>
+                <?php } ?>
         </div>
 
         <?php
