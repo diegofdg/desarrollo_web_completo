@@ -35,12 +35,31 @@
 
                     $calendario[$fecha][] = $evento;
             ?>
-                    
                 <?php } ?>
-                <pre>
-                    <?php var_dump($calendario); ?>
-                </pre>            
+
+            <?php
+                foreach($calendario as $dia => $lista_eventos) { ?>
+                    <h3>
+                        <i class="far fa-calendar-alt"></i>
+                        <?php 
+                            /**** DEPRECATED ****/
+                            // En Unix
+                            // setlocale(LC_TIME, 'es_ES.UTF-8');
+
+                            // En Windows
+                            // setlocale(LC_TIME, 'spanish');
+                            // echo utf8_encode(strftime ("%A, %d de %B del %Y", strtotime($dia)));
+                            
+                            $fechaFormateada = date_create($dia);
+                            echo date_format($fechaFormateada,"l\, j F Y");
+                        ?>
+                    </h3>
+            <?php } ?>
         </div>
+
+        <pre>
+            <?php var_dump($calendario); ?>
+        </pre>
 
         <?php
             $conn->close();
