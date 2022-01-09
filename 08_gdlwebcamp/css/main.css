@@ -391,6 +391,8 @@ div.logo img {
 /** Navegación principal **/
 nav.navegacion-principal {
   display: none;
+  width: 100%;  
+  margin-top: 100px;
 }
 
 nav.navegacion-principal a {
@@ -425,6 +427,7 @@ nav.navegacion-principal a:last-child:hover {
     float: right;
     text-align: right;    
     display: block;
+    margin-top: 0;
   }
 
   nav.navegacion-principal a {
@@ -433,7 +436,7 @@ nav.navegacion-principal a:last-child:hover {
     display: inline-block;
     width: auto;    
     text-align: center;
-    margin-bottom: 0 10px 0 0;
+    margin: 0 10px 0 0;
   }
 }
 

@@ -158,6 +158,11 @@ $(function() {
         }
     });
 
+    $('.menu-movil').on('click', function() {
+        $('.navegacion-principal').slideToggle();
+
+    });
+
     $('.programa-evento .info-curso:first').show(); 
     $('.menu-programa a:first').addClass('activo');    
     
