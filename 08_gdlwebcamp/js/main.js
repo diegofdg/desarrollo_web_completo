@@ -144,11 +144,18 @@ $(function() {
     $('.nombre-sitio').lettering();
 
     var windowHeight = $(window).height();
-    var barraAltura = $('.barra').innerHight();
+    var barraAltura = $('.barra').innerHeight();
 
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
+        if(scroll > windowHeight) {
+            $('.barra').addClass('fixed');
+            $('body').css({'margin-top': barraAltura + 'px'});
+        } else {
+            $('.barra').removeClass('fixed');
+            $('body').css({'margin-top':'0px'});
+        }
     });
 
     $('.programa-evento .info-curso:first').show(); 

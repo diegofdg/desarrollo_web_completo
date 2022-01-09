@@ -365,6 +365,14 @@ div.barra {
   padding: 20px 0;
 }
 
+.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 div.logo {
   width: 80%;
   float: left;
@@ -729,6 +737,7 @@ div.tabla-precio p.numero {
 /** Mapa **/
 div.mapa {
   height: 420px;
+  z-index: 0;
 }
 
 /** Testimoniales **/
