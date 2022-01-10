@@ -255,6 +255,7 @@
                                 <option value="3">Plumas</option>
                             </select>
                         </div>
+                        <input type="hidden" name="total_pedido" id="total_pedido">
                         <input type="button" id="calcular" class="button" value="Calcular">
                     </div>                    
 

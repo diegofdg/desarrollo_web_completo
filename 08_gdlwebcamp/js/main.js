@@ -29,6 +29,7 @@
             var calcular = document.getElementById('calcular');
             var errorDiv = document.getElementById('error');
             var botonRegistro = document.getElementById('btnRegistro');
+            botonRegistro.disabled = true;
             var lista_productos = document.getElementById('lista-productos');
             var suma = document.getElementById('suma-total');
             var camisas = document.getElementById('camisa_evento');
@@ -111,6 +112,8 @@
                         lista_productos.innerHTML += listadoProductos[i] + '<br/>';
                     }
                     suma.innerHTML = '$' + totalPagar.toFixed(2);
+                    botonRegistro.disabled = false;
+                    document.getElementById('total_pedido').value = totalPagar;
                 }
             }
     
