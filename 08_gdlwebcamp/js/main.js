@@ -148,6 +148,10 @@
 $(function() {
     $('.nombre-sitio').lettering();
 
+    $('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
+    $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
+    $('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
+
     var windowHeight = $(window).height();
     var barraAltura = $('.barra').innerHeight();
 
