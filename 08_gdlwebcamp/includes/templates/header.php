@@ -22,7 +22,7 @@
     <?php 
         $archivo = basename($_SERVER['PHP_SELF']);
         $pagina = str_replace('.php', '', $archivo);
-        if($pagina === 'invitados') {
+        if($pagina === 'invitados' || $pagina === 'index') {
             echo '<link rel="stylesheet" href="css/colorbox.css">';
         } else if($pagina === 'conferencia') {
             echo '<link rel="stylesheet" href="css/lightbox.css">';

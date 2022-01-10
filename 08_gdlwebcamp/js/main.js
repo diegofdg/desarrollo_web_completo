@@ -199,5 +199,8 @@ $(function() {
         $('#segundos').html(event.strftime('%S'));
     });
 
-    $('.invitado-info').colorbox({inline: true, width: "50%"});
+    var invitadoInfo = jQuery('.invitado-info');
+    if(invitadoInfo.length > 0){
+        $('.invitado-info').colorbox({inline: true, width: "50%"});
+    }
 });
