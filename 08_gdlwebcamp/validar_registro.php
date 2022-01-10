@@ -16,9 +16,12 @@
             include_once 'includes/funciones/funciones.php';
 
             $pedido = productos_json($boletos, $camisas, $etiquetas);
+
+            $eventos = $_POST['registro'];
+            $registro = eventos_json($eventos);
         ?>
         <pre>
-            <?php var_dump($pedido); ?>
+            <?php var_dump($registro); ?>
         </pre>
         <?php endif; ?>
     </section>
