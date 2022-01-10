@@ -18,7 +18,16 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/colorbox.css">
+    
+    <?php 
+        $archivo = basename($_SERVER['PHP_SELF']);
+        $pagina = str_replace('.php', '', $archivo);
+        if($pagina === 'invitados') {
+            echo '<link rel="stylesheet" href="css/colorbox.css">';
+        } else if($pagina === 'conferencia') {
+            echo '<link rel="stylesheet" href="css/lightbox.css">';
+        }
+    ?>
 
     <meta name="theme-color" content="#fafafa">
 </head>
