@@ -21,8 +21,6 @@ function iniciarApp() {
     paginaSiguiente(); 
     paginaAnterior();
 
-    consultarAPI();
-    
     idCliente();
     nombreCliente();
     seleccionarFecha();
