@@ -15,6 +15,7 @@
             id="password"
             name="password"
             placeholder="Tu Nuevo Password"
+            autoComplete="on"
         />
     </div>
     <input type="submit" class="boton" value="Guardar Nuevo Password">

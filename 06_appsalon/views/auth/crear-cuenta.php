@@ -53,6 +53,7 @@
             id="password"
             name="password"
             placeholder="Tu Password"
+            autoComplete="on"
         />
     </div>
     <input type="submit" value="Crear Cuenta" class="boton">

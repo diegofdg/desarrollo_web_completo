@@ -22,6 +22,7 @@
             id="password"
             placeholder="Tu Password"
             name="password"
+            autoComplete="on"
         />
     </div>
     <input type="submit" class="boton" value="Iniciar Sesión">
