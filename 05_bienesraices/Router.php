@@ -22,13 +22,14 @@ class Router {
 
         $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar' ];
 
-        $urlActual = $_SERVER['PATH_INFO'] ?? '/';
+        $urlActual = ($_SERVER['REQUEST_URI'] === '') ? '/' : $_SERVER['REQUEST_URI'] ;
         $metodo = $_SERVER['REQUEST_METHOD'];
+        $splitURL = explode('?', $urlActual);
 
         if($metodo === 'GET') {
-            $fn = $this->rutasGET[$urlActual] ?? null;
+            $fn = $this->rutasGET[$splitURL[0]] ?? null;
         } else  {
-            $fn = $this->rutasPOST[$urlActual] ?? null;
+            $fn = $this->rutasPOST[$splitURL[0]] ?? null;
         }
 
         if(in_array($urlActual, $rutas_protegidas) && !$auth) {

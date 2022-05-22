@@ -3,7 +3,7 @@
 
     <?php 
         if($mensaje) { ?>
-            <p data-cy="alerta-envio-formulario" class='alerta exito'><?php echo $mensaje; ?></p>;
+            <p data-cy="alerta-envio-formulario" class='alerta exito'><?php echo $mensaje; ?></p>
         <?php } ?>
   
     <picture>

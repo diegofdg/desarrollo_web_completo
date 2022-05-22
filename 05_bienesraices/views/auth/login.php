@@ -13,7 +13,7 @@
                 <input type="email" name="email" placeholder="Tu Email" id="email" requided>
 
                 <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Tu Password" id="password" required>
+                <input type="password" name="password" placeholder="Tu Password" id="password" autoComplete="on" required>
             </fieldset>
         
             <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
