@@ -10,6 +10,6 @@ Este repositorio contiene todos los proyectos incluidos en el curso "Desarrollo 
     <li><a href="https://ddg-frontendstore.netlify.app/">Frontend Store</a></li>
     <li><a href="https://ddg-blogdecafe.netlify.app/">Blog de Café</a></li>
     <li><a href="https://ddg-festivalmusica.netlify.app/">Festival de Música</a></li>
-    <li><a href="https://ddg-bienesraices.netlify.app/">Bienes Raíces</a></li>
+    <li><a href="https://ddg-bienesraices.herokuapp.com/">Bienes Raíces</a></li>
     <li><a href="https://ddg-appsalon.herokuapp.com/">App Salón</a></li>
 </ol>
