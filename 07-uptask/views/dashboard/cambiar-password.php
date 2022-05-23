@@ -12,6 +12,7 @@
                 type="password"
                 name="password_actual"
                 placeholder="Tu Password Actual"
+                autoComplete="on"
             />
         </div>
         <div class="campo">
@@ -20,6 +21,7 @@
                 type="password"
                 name="password_nuevo"
                 placeholder="Tu Password Nuevo"
+                autoComplete="on"
             />
         </div>
 

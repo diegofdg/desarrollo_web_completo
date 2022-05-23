@@ -3,6 +3,7 @@
     obtenerTareas();
     let tareas = [];
     let filtradas = [];   
+    const server = window.location.origin;
 
     const nuevaTareaBtn = document.querySelector('#agregar-tarea');
     nuevaTareaBtn.addEventListener('click', function() {
@@ -211,7 +212,7 @@
         datos.append('proyectoId', obtenerProyecto());        
 
         try {
-            const url = 'http://localhost:3000/api/tarea';
+            const url = `${server}/api/tarea`;
             const respuesta = await fetch(url, {
                 method: 'POST',
                 body: datos
@@ -269,7 +270,7 @@
         */
 
         try {
-            const url = 'http://localhost:3000/api/tarea/actualizar';
+            const url = `${server}/api/tarea/actualizar`;
 
             const respuesta = await fetch(url, {
                 method: 'POST',
@@ -330,7 +331,7 @@
         datos.append('proyectoId', obtenerProyecto());
 
         try {
-            const url = 'http://localhost:3000/api/tarea/eliminar';
+            const url = `${server}/api/tarea/eliminar`;
             const respuesta = await fetch(url, {
                 method: 'POST',
                 body: datos

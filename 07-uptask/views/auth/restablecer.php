@@ -15,6 +15,7 @@
                     id="password"
                     placeholder="Tu Password"
                     name="password"
+                    autoComplete="on"
                 />
             </div>
 

@@ -36,6 +36,7 @@
                     id="password"
                     placeholder="Tu Password"
                     name="password"
+                    autoComplete="on"
                 />
             </div>
 
@@ -46,6 +47,7 @@
                     id="password2"
                     placeholder="Repite tu Password"
                     name="password2"
+                    autoComplete="on"
                 />
             </div>
 
