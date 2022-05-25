@@ -86,10 +86,6 @@ INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `token`, `confirmad
 (1, ' Diego', 'correo@correo.com', '$2y$10$zq9fxVitVzRw3X38rI.5YObrQ7UOWUIDJM0HLF9/N9.HtqB0lvtSm', '', 1);
 
 --
--- Índices para tablas volcadas
---
-
---
 -- Indices de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
@@ -109,10 +105,6 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
@@ -129,10 +121,6 @@ ALTER TABLE `tareas`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restricciones para tablas volcadas
---
 
 --
 -- Filtros para la tabla `proyectos`

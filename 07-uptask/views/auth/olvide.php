@@ -14,7 +14,7 @@
                     placeholder="Tu Email"
                     name="email"
                 />
-            </div>            
+            </div>
 
             <input type="submit" class="boton" value="Enviar Instrucciones">
         </form>
