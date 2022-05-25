@@ -7,7 +7,7 @@ use Omnipay\Omnipay;
 define('CLIENT_ID', '');
 define('CLIENT_SECRET', '');
  
-define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?exito=true');
+//define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?exito=true');
 define('PAYPAL_CANCEL_URL', 'http://localhost:5500/pago_finalizado.php?exito=false');
 define('PAYPAL_CURRENCY', 'USD');
  

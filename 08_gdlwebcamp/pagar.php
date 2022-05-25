@@ -1,5 +1,6 @@
 <?php
 require_once 'includes/paypal.php';
+
 use Omnipay\Common\ItemBag;
  
 if (isset($_POST['submit'])) {    
@@ -21,9 +22,8 @@ if (isset($_POST['submit'])) {
     $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];
 
     $totalPedido = $_POST['total_pedido'];
-
     
-    /* include_once 'includes/funciones/funciones.php';
+    include_once 'includes/funciones/funciones.php';
 
     $pedido = productos_json($boletos, $camisas, $etiquetas);
 
@@ -35,12 +35,14 @@ if (isset($_POST['submit'])) {
         $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
         $stmt->execute();
+        $ID_registro = $stmt->insert_id;        
         $stmt->close();
         $conn->close();
-        header('Location: validar_registro.php?exitoso=1');
     } catch(\Exception $e) {
         echo $e->getMessage();
-    }   */
+    }  
+
+    define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?exito=true?&id_pago=' . $ID_registro);
 
     $items = new ItemBag();
 
@@ -86,8 +88,4 @@ if (isset($_POST['submit'])) {
     } catch(Exception $e) {
         echo $e->getMessage();
     }
-
-    
-
-
 }
