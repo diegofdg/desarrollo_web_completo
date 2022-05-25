@@ -12,8 +12,9 @@ if (isset($_POST['submit'])) {
 
     $boletos = $_POST['boletos'];
     $numero_boletos = $boletos;
+    $pedidoExtra = $_POST['pedido_extra'];
     $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
-    $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];
+    $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];    
     
     $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];;
     $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];;
@@ -23,6 +24,19 @@ if (isset($_POST['submit'])) {
     foreach($numero_boletos as $key => $value) {
         if( (int) $value['cantidad'] > 0) {
             ${"array$i"} = array('Pase' => $key, 'Cantidad' => (int) $value['cantidad'], 'Precio' => (int) $value['precio']);               
+            $i++;
+        }
+    }
+
+    foreach($pedidoExtra as $key => $value) {
+        if( (int) $value['cantidad'] > 0) {
+            if($key == 'camisas') {
+                $precio = (float) $value['precio'] * .93;
+            } else {
+                $precio = (int) $value['precio'];
+            }
+
+            ${"array$i"} = array('Extras' => $key, 'Cantidad' => (int) $value['cantidad'], 'Precio' => $precio);
             $i++;
         }
     }
