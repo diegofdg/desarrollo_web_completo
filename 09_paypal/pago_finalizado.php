@@ -18,30 +18,37 @@
 
                 if($resultado == true) {
                     if (array_key_exists('paymentId', $_GET) && array_key_exists('PayerID', $_GET)) {
-                      $transaction = $gateway->completePurchase(array(
-                          'payer_id' => $_GET['PayerID'],
-                          'transactionReference' => $_GET['paymentId'],
-                      ));
-                      $response = $transaction->send();
+                        $transaction = $gateway->completePurchase(array(
+                            'payer_id' => $_GET['PayerID'],
+                            'transactionReference' => $_GET['paymentId'],
+                        ));
+                        $response = $transaction->send();
                   
-                      if ($response->isSuccessful()) {
-                          $arr_body = $response->getData();
-                          
-                          $payment_id = $arr_body['id'];
-                          $payer_id = $arr_body['payer']['payer_info']['payer_id'];
-                          $payer_email = $arr_body['payer']['payer_info']['email'];
-                          $precio = $arr_body['transactions'][0]['amount']['total'];
-                          $currency = PAYPAL_CURRENCY;
-                          $payment_status = $arr_body['state'];
-                          
-                          $db->query("INSERT INTO payments(payment_id, payer_id, payer_email, amount, currency, payment_status) VALUES('". $payment_id ."', '". $payer_id ."', '". $payer_email ."', '". $precio ."', '". $currency ."', '". $payment_status ."')");
-                          echo "El pago se realizo correctamente! <br/> ";
-                          echo "El id es {$payment_id} ";                      
-                      } else {
-                          echo $response->getMessage();
-                      }
+                        if ($response->isSuccessful()) {
+                            $arr_body = $response->getData();
+                            
+                            $payment_id = $arr_body['id'];
+                            $payer_id = $arr_body['payer']['payer_info']['payer_id'];
+                            $payer_email = $arr_body['payer']['payer_info']['email'];
+                            $precio = $arr_body['transactions'][0]['amount']['total'];
+                            $currency = PAYPAL_CURRENCY;
+                            $payment_status = $arr_body['state'];
+                            
+                            $db->query("INSERT INTO payments(payment_id, payer_id, payer_email, amount, currency, payment_status) VALUES('". $payment_id ."', '". $payer_id ."', '". $payer_email ."', '". $precio ."', '". $currency ."', '". $payment_status ."')");
+                            echo "<div class='resultado correcto'>";
+                            echo "El pago se realizó correctamente <br/>";
+                            echo "El ID es {$payment_id}";
+                            echo "</div>";
+                        } else {
+                            echo "<div class='resultado error'>";
+                            echo "El pago no se realizo";
+                            echo $response->getMessage();
+                            echo "</div>";
+                        }
                     } else {
+                        echo "<div class='resultado error'>";
                         echo 'El usuario ha cancelado el pago';
+                        echo "</div>";
                     }
                 }
         ?> 
