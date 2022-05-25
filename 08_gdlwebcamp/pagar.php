@@ -1,7 +1,8 @@
 <?php
 require_once 'includes/paypal.php';
+use Omnipay\Common\ItemBag;
  
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {    
     
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -16,46 +17,65 @@ if (isset($_POST['submit'])) {
     $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
     $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];    
     
-    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];;
-    $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];;
+    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+    $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];
 
-    $i=0;
+    $totalPedido = $_POST['total_pedido'];
+
+    
+    /* include_once 'includes/funciones/funciones.php';
+
+    $pedido = productos_json($boletos, $camisas, $etiquetas);
+
+    $eventos = $_POST['registro'];
+    $registro = eventos_json($eventos);
+
+    try {
+        require_once('includes/funciones/bd_conexion.php');
+        $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
+        header('Location: validar_registro.php?exitoso=1');
+    } catch(\Exception $e) {
+        echo $e->getMessage();
+    }   */
+
+    $items = new ItemBag();
 
     foreach($numero_boletos as $key => $value) {
         if( (int) $value['cantidad'] > 0) {
-            ${"array$i"} = array('Pase' => $key, 'Cantidad' => (int) $value['cantidad'], 'Precio' => (int) $value['precio']);               
-            $i++;
+            $items->add(array(
+                'name' => $key,
+                'quantity' => (int) $value['cantidad'],
+                'price' => (int) $value['precio']
+            ));
         }
     }
 
     foreach($pedidoExtra as $key => $value) {
-        if( (int) $value['cantidad'] > 0) {
-            if($key == 'camisas') {
-                $precio = (float) $value['precio'] * .93;
-            } else {
-                $precio = (int) $value['precio'];
-            }
-
-            ${"array$i"} = array('Extras' => $key, 'Cantidad' => (int) $value['cantidad'], 'Precio' => $precio);
-            $i++;
+        if( (int) $value['cantidad'] > 0) {            
+            $items->add(array(
+                'name' => $key,
+                'quantity' => (int) $value['cantidad'],
+                'price' => (float) $value['precio']
+            ));
         }
     }
 
     echo "<pre>";
-    var_dump($_POST);
+    var_dump($items);
     echo "</pre>";
     exit;
 
     try {
         $response = $gateway->purchase([
-            'amount' => $_POST['precio'],
+            'amount' => $totalPedido,
             'currency' => PAYPAL_CURRENCY,
             'returnUrl' => PAYPAL_RETURN_URL,
             'cancelUrl' => PAYPAL_CANCEL_URL
-        ])->setItems(array(
-            array('name' => $producto, 'quantity' => 1, 'price' => $precio),
-            array('name' => 'envío gratis', 'quantity' => 1, 'price' => '0.00')
-        ))->send();
+        ])->setItems($items)->send();
  
         if ($response->isRedirect()) {
             $response->redirect(); // this will automatically forward the customer
@@ -66,6 +86,8 @@ if (isset($_POST['submit'])) {
     } catch(Exception $e) {
         echo $e->getMessage();
     }
+
+    
 
 
 }
