@@ -3,7 +3,7 @@ require_once 'includes/paypal.php';
 
 use Omnipay\Common\ItemBag;
  
-if (isset($_POST['submit'])) {    
+if (isset($_POST['submit'])) {
     
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $numero_boletos = $boletos;
     $pedidoExtra = $_POST['pedido_extra'];
     $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
-    $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];    
+    $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];
     
     $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
     $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];
@@ -35,14 +35,14 @@ if (isset($_POST['submit'])) {
         $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
         $stmt->execute();
-        $ID_registro = $stmt->insert_id;        
+        $ID_registro = $stmt->insert_id;
         $stmt->close();
         $conn->close();
     } catch(\Exception $e) {
         echo $e->getMessage();
-    }  
+    }
 
-    define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?exito=true?&id_pago=' . $ID_registro);
+    define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?&id_pago=' . $ID_registro);
 
     $items = new ItemBag();
 
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
     }
 
     foreach($pedidoExtra as $key => $value) {
-        if( (int) $value['cantidad'] > 0) {            
+        if( (int) $value['cantidad'] > 0) {
             $items->add(array(
                 'name' => $key,
                 'quantity' => (int) $value['cantidad'],
@@ -65,11 +65,6 @@ if (isset($_POST['submit'])) {
             ));
         }
     }
-
-    /* echo "<pre>";
-    var_dump($items);
-    echo "</pre>";
-    exit; */
 
     try {
         $response = $gateway->purchase([
@@ -80,9 +75,8 @@ if (isset($_POST['submit'])) {
         ])->setItems($items)->send();
  
         if ($response->isRedirect()) {
-            $response->redirect(); // this will automatically forward the customer
+            $response->redirect();
         } else {
-            // not successful
             echo $response->getMessage();
         }
     } catch(Exception $e) {
