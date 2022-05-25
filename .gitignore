@@ -3,3 +3,4 @@ build
 imagenes
 vendor
 .env
+.vscode
