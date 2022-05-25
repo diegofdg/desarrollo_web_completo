@@ -64,10 +64,10 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    echo "<pre>";
+    /* echo "<pre>";
     var_dump($items);
     echo "</pre>";
-    exit;
+    exit; */
 
     try {
         $response = $gateway->purchase([

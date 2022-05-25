@@ -136,10 +136,7 @@
                     diasElegidos.push('viernes','sabado','domingo');
                 }
     
-                console.log(diasElegidos);
-    
-                for(var i = 0; i < diasElegidos.length; i++) {  
-                    console.log(document.getElementById(diasElegidos[i]));
+                for(var i = 0; i < diasElegidos.length; i++) {
                     document.getElementById(diasElegidos[i]).style.display = 'block';
                 } 
             }

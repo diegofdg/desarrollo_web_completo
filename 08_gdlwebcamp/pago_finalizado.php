@@ -12,7 +12,7 @@
         <h2>Pagos con Paypal</h2>
         
         <?php
-            require_once 'config.php';
+            require_once 'includes/paypal.php';
 
             $resultado = (bool) $_GET['exito'];              
 
