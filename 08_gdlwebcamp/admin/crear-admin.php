@@ -1,4 +1,5 @@
-<?php   
+<?php
+    require_once 'funciones/funciones.php';
     include_once 'templates/header.php';
     include_once 'templates/barra.php';
     include_once 'templates/navegacion.php';
@@ -57,6 +58,6 @@
     </div>
     <!-- /.content-wrapper -->
 
-  <?php
+<?php
     include_once 'templates/footer.php';
-  ?>
+?>
