@@ -42,6 +42,7 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
+                                    <input type="hidden" name="agregar-admin" value="1">
                                     <button type="submit" class="btn btn-primary">Añadir</button>
                                 </div>
                             </form>
