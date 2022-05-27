@@ -1,12 +1,5 @@
 <?php
-    require_once( 'funciones/funciones.php' );
-    
-    if($conn->ping()) {
-        echo "Conectado";
-    } else {
-        echo "No conectado";
-    }
-    
+
     if(isset($_POST['agregar-admin'])) {
         $usuario = $_POST['usuario'];
         $nombre = $_POST['nombre'];
@@ -16,7 +9,17 @@
             'cost' => 12
         );
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
-        var_dump($password_hashed);
+        
+        try {
+            include_once 'funciones/funciones.php';
+            $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
+            $stmt->execute();
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }
     
 ?>
