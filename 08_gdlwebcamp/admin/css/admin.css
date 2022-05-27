@@ -1,0 +1,12 @@
+.user-panel {
+    height: 60px;
+}
+
+.user-panel>.info {
+    position: relative;
+    left: auto;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: white;
+}
