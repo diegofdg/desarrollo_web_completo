@@ -40,15 +40,20 @@ $(document).ready(function() {
             url: $(this).attr('action'),
             dataType: 'json',
             success: function(data) {
-                var resultado = data; 
-                console.log(resultado);
-            },
-            error: function(error) {
-                swal(
-                    'Error!',
-                    'Hubo un error al enviar su información!',
-                    'error'
-                );
+                var resultado = data;
+                if(resultado.respuesta == 'exitoso') {
+                    swal(
+                        'Login Correcto!',
+                        'Bienvenid@ '+resultado.usuario+' !!',
+                        'success'
+                    );
+                } else {
+                    swal(
+                        'Error!',
+                        'Usuario o Password incorrectos!',
+                        'error'
+                    );
+                }
             }
         });
     });
