@@ -16,7 +16,7 @@
             <!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Inicia Sesión aquí</p>
-                <form name="login-admin-form" id="login-admin" method="post" action="insertar-admin.php">
+                <form name="login-admin-form" id="login-admin" method="post" action="modelo-admin.php">
                     <div class="form-group has-feedback">
                         <input type="text" class="form-control" name="usuario" placeholder="Usuario">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
