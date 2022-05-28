@@ -11,8 +11,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+                Listado de Administradores
+                <small></small>
             </h1>      
         </section>
 
@@ -22,11 +22,11 @@
                 <div class="col-xs-12">            
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <h3 class="box-title">Maneja los usuarios en esta sección</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="registros" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Usuario</th>
