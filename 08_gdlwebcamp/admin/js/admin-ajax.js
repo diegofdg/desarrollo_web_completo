@@ -29,6 +29,27 @@ $(document).ready(function() {
         });
     });
 
+    $('.borrar_registro').on('click', function(e) {
+        e.preventDefault();
+
+        var id = $(this).attr('data-id');
+        var tipo = $(this).attr('data-tipo');
+
+        $.ajax({
+            type: 'post',
+            data: {
+                'id': id,
+                'registro': 'eliminar'
+
+            },
+            url: 'modelo-'+tipo+'.php',
+            success: function(data) {
+                console.log(data);
+            }
+        });
+        
+    });
+
     $('#login-admin').on('submit', function(e) {
         e.preventDefault();
         

@@ -1,7 +1,5 @@
 <?php
-    include_once 'funciones/funciones.php';
-    $usuario = $_POST['usuario'];    
-    $password = $_POST['password'];    
+    include_once 'funciones/funciones.php';    
     $opciones = array(
         'cost' => 12
     );
@@ -49,6 +47,8 @@
 
     if($_POST['registro'] == 'nuevo') {
         $nombre = $_POST['nombre'];
+        $usuario = $_POST['usuario'];    
+        $password = $_POST['password'];    
         $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
         
         try {            
@@ -77,6 +77,8 @@
 
     if($_POST['registro'] == 'actualizar') {
         $nombre = $_POST['nombre'];
+        $usuario = $_POST['usuario'];    
+        $password = $_POST['password'];    
         $id_registro = $_POST['id_registro'];
 
         try {
@@ -109,5 +111,9 @@
         }
 
         die(json_encode($respuesta));
+    }
+
+    if($_POST['registro'] == 'eliminar') {
+        die(json_encode($_POST));
     }
 ?>
