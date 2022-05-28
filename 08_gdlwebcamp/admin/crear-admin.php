@@ -39,13 +39,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password:</label>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" autoComplete="on">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Tu Password" autoComplete="on">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Repetir Password:</label>
+                                        <input type="password" class="form-control" id="repetir_password" name="repetir-password" placeholder="Repite tu Password" autoComplete="on">
+                                        <span id="resultado_password" class="help-block"></span>
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <input type="hidden" name="registro" value="nuevo">
-                                    <button type="submit" class="btn btn-primary">Añadir</button>
+                                    <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
                                 </div>
                             </form>
                         </div>
