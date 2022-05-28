@@ -25,13 +25,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">              
-              <span class="hidden-xs">Hola: Admin</span>
+              <span class="hidden-xs">Hola: <?php echo $_SESSION['nombre'] ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-success btn-flat">Ajustes</a>
+                  <a href="editar-admin.php?id=<?php echo $_SESSION['id'] ?>" class="btn btn-success btn-flat">Ajustes</a>
                 </div>
                 <div class="pull-right">
                   <a href="login.php?cerrar_sesion=true" class="btn btn-success btn-flat">Cerrar Sesión</a>
