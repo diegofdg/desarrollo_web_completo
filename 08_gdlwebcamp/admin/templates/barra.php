@@ -34,7 +34,7 @@
                   <a href="#" class="btn btn-success btn-flat">Ajustes</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-success btn-flat">Cerrar Sesión</a>
+                  <a href="login.php?cerrar_sesion=true" class="btn btn-success btn-flat">Cerrar Sesión</a>
                 </div>
               </li>
             </ul>
