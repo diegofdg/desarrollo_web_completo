@@ -14,7 +14,7 @@ $(document).ready(function() {
                 if(resultado.respuesta == 'exito') {
                     swal(
                         'Correcto!',
-                        'El administrador se creó correctamente!',
+                        'Se guardó correctamente!',
                         'success'
                     );
                 }
