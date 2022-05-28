@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     $('#login-admin').on('submit', function(e) {
         e.preventDefault();
-
+        
         var datos = $(this).serializeArray();
 
         $.ajax({
@@ -40,6 +40,8 @@ $(document).ready(function() {
             url: $(this).attr('action'),
             dataType: 'json',
             success: function(data) {
+                console.log(data);
+                
                 var resultado = data;
                 if(resultado.respuesta == 'exitoso') {
                     swal(
@@ -57,6 +59,13 @@ $(document).ready(function() {
                         'error'
                     );
                 }
+            },
+            error: function(error) {
+                swal(
+                    'Error!',
+                    'Hubo un error al enviar su información!',
+                    'error'
+                );
             }
         });
     });
