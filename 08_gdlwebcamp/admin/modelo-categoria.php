@@ -4,7 +4,7 @@
     if($_POST['registro'] == 'nuevo') {
 
         $nombre_categoria = $_POST['nombre'];
-        $icono = $_POST['icono'];    
+        $icono = $_POST['icono'];
         
         try {            
             $stmt = $conn->prepare("INSERT INTO categoria_evento (cat_evento, icono) VALUES (?, ?) ");
@@ -32,23 +32,14 @@
         die(json_encode($respuesta));
     }
 
-    if($_POST['registro'] == 'actualizar') {
-        $titulo = $_POST['titulo_evento'];
-        $categoria_id = $_POST['categoria_evento'];    
-        $invitado_id = $_POST['invitado'];    
-        $hora_evento = $_POST['hora_evento'];
-
-        $fecha = $_POST['fecha_evento'];
-        $fecha_formateada = date('Y-m-d' , strtotime($fecha));
-
-        $hora = $_POST['hora_evento'];
-        $hora_formateada = date('H:i' , strtotime($hora));
-
-        $id_registro = $_POST['id_registro'];        
+    if($_POST['registro'] == 'actualizar') {  
+        $nombre_categoria = $_POST['nombre'];
+        $icono = $_POST['icono'];
+        $id_registro = $_POST['id_registro'];
         
         try {
-            $stmt = $conn->prepare("UPDATE eventos SET nombre_evento = ?, fecha_evento = ?, hora_evento = ?, id_cat_evento = ?, id_inv = ?, editado = NOW() WHERE evento_id = ? ");
-            $stmt->bind_param("sssiii", $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id, $id_registro);
+            $stmt = $conn->prepare("UPDATE categoria_evento SET cat_evento = ?, icono = ?, editado = NOW() WHERE id_categoria = ? ");
+            $stmt->bind_param("ssi", $nombre_categoria, $icono, $id_registro);
             $stmt->execute();
 
             if($stmt->affected_rows) {

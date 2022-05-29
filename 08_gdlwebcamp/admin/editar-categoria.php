@@ -1,6 +1,12 @@
 <?php
     include_once 'funciones/sesiones.php';
     include_once 'funciones/funciones.php';
+
+    $id = $_GET['id'];
+    if(!filter_var($id, FILTER_VALIDATE_INT)) {
+        die("Error!");
+    }
+
     include_once 'templates/header.php';
     include_once 'templates/barra.php';
     include_once 'templates/navegacion.php';
@@ -11,8 +17,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Crear Categorías de Eventos
-                <small>llena el formulario para crear una categoría</small>
+                Editar Categorías de Eventos
+                <small>llena el formulario para editar una categoría</small>
             </h1>
         </section>
 
@@ -23,15 +29,20 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Crear Categoría</h3>
+                            <h3 class="box-title">Editar Categoría</h3>
                         </div>
                         <div class="box-body">
+                            <?php
+                                $sql = "SELECT * FROM categoria_evento WHERE id_categoria = $id ";
+                                $resultado = $conn->query($sql);
+                                $categoria = $resultado->fetch_assoc();
+                            ?>
                             <!-- form start -->
                             <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-categoria.php">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Categoría">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Categoría" value="<?php echo $categoria['cat_evento'] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="icono">Icono:</label>
@@ -39,13 +50,14 @@
                                             <div class="input-group-addon">
                                                 <i class="fa"></i>
                                             </div>
-                                            <input type="text" id="icono" name="icono" class="form-control pull-right" placeholder="fa-icon">
+                                            <input type="text" id="icono" name="icono" class="form-control pull-right" placeholder="fa-icon" value="<?php echo $categoria['icono'] ?>">
                                         </div>                                        
                                     </div>                                    
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <input type="hidden" name="registro" value="nuevo">
+                                    <input type="hidden" name="registro" value="actualizar">
+                                    <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
                                     <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
                                 </div>
                             </form>
