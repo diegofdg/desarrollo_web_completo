@@ -30,12 +30,8 @@
                             <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-categoria.php">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="usuario">Usuario:</label>
-                                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu Nombre Completo">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Categoría">
                                     </div>
                                     <div class="form-group">
                                         <label for="icono">Icono:</label>
