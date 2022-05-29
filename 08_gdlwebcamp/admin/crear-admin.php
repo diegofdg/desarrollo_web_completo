@@ -50,7 +50,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <input type="hidden" name="registro" value="nuevo">
-                                    <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
+                                    <button type="submit" class="btn btn-primary" id="crear_registro_admin">Añadir</button>
                                 </div>
                             </form>
                         </div>

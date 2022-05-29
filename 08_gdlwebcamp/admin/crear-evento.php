@@ -66,18 +66,38 @@
                                         <div class="form-group">
                                             <label>Hora:</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control hora">
+                                                <input type="text" class="form-control hora" name="hora_evento">
                                                 <div class="input-group-addon">
                                                 <i class="fa fa-clock-o"></i>
                                                 </div>
                                             </div>                                            
                                         </div>                                        
-                                    </div>                                    
-                                </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Invitado o Ponente:</label>
+                                        <select name="invitado" class="form-control seleccionar" id="invitado_evento">
+                                            <option value="0">- Seleccione -</option>
+                                            <?php
+                                                try {
+                                                    $sql = "SELECT invitado_id, nombre_invitado, apellido_invitado FROM invitados ";
+                                                    $resultado = $conn->query($sql);
+                                                    while($invitados = $resultado->fetch_assoc()) { ?>
+                                                        <option value="<?php echo $invitados['invitado_id'] ?>">
+                                                            <?php echo $invitados['nombre_invitado'] . " " . $invitados['apellido_invitado']; ?>
+                                                        </option>
+                                                    <?php }
+                                                } catch (Exception $e) {
+                                                    echo "Error: " . $e->getMessage();
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>                                 
+                                </div>                                
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <input type="hidden" name="registro" value="nuevo">
-                                    <button type="submit" class="btn btn-primary" id="crear_registro">Añadir</button>
+                                    <button type="submit" class="btn btn-primary">Añadir</button>
                                 </div>
                             </form>
                         </div>

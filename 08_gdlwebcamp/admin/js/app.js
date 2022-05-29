@@ -23,7 +23,7 @@ $(document).ready(function () {
       }
     });
 
-    $('#crear_registro').attr('disabled', true);
+    $('#crear_registro_admin').attr('disabled', true);
 
     $('#repetir_password').on('input', function() {
         var password_nuevo = $('#password').val();
@@ -32,12 +32,12 @@ $(document).ready(function () {
             $('#resultado_password').text('Correcto');
             $('#resultado_password').parents('.form-group').addClass('has-success').removeClass('has-error');
             $('input#password').parents('.form-group').addClass('has-success').removeClass('has-error');
-            $('#crear_registro').attr('disabled', false);
+            $('#crear_registro_admin').attr('disabled', false);
         } else {
             $('#resultado_password').text('Los Passwords no son iguales');
             $('#resultado_password').parents('.form-group').addClass('has-error').removeClass('has-success');
             $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
-            $('#crear_registro').attr('disabled', true);
+            $('#crear_registro_admin').attr('disabled', true);
         }
     });
 
