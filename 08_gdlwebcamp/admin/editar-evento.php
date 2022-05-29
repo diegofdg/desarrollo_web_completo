@@ -137,7 +137,8 @@
                                 </div>                                
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <input type="hidden" name="registro" value="nuevo">
+                                    <input type="hidden" name="registro" value="actualizar">
+                                    <input type="hidden" name="id_registro" value="<?php echo $id; ?>"> 
                                     <button type="submit" class="btn btn-primary">Añadir</button>
                                 </div>
                             </form>
