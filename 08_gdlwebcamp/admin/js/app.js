@@ -40,4 +40,17 @@ $(document).ready(function () {
             $('#crear_registro').attr('disabled', true);
         }
     });
+
+    $('#fecha').datepicker({
+        autoclose: true
+    });
+    
+    $('.seleccionar').select2({
+        width: '100%'
+    });
+
+    $('.hora').timepicker({
+        showInputs: false,
+        defaultTime: '10',
+    });
 });
