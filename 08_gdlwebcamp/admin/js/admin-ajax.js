@@ -17,6 +17,12 @@ $(document).ready(function() {
                         'Se guardó correctamente!',
                         'success'
                     );
+                } else {
+                    swal(
+                        'Error!',
+                        'Hubo un error al enviar su información!',
+                        'error'
+                    );
                 }
             },
             error: function(error) {

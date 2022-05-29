@@ -1,22 +1,22 @@
 <?php
-    include_once 'funciones/funciones.php';    
-    $opciones = array(
-        'cost' => 12
-    );
+    include_once 'funciones/funciones.php';
+    $titulo = $_POST['titulo_evento'];
+    $categoria_id = $_POST['categoria_evento'];    
+    $invitado_id = $_POST['invitado'];    
+    $hora_evento = $_POST['hora_evento'];
+
+    $fecha = $_POST['fecha_evento'];
+    $fecha_formateada = date('Y-m-d' , strtotime($fecha));
+
+    $hora = $_POST['hora_evento'];
 
     if($_POST['registro'] == 'nuevo') {
-        die(json_encode($_POST));
-        $nombre = $_POST['nombre'];
-        $usuario = $_POST['usuario'];    
-        $password = $_POST['password'];    
-        $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
-        
         try {            
-            $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
+            $stmt = $conn->prepare("INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv) VALUES (?, ?, ?, ?, ?) ");
+            $stmt->bind_param("sssii", $titulo, $fecha_formateada, $hora_evento, $categoria_id, $invitado_id);
             $stmt->execute();
             $id_registro = $stmt->insert_id;
-            if($id_registro > 0) {
+            if($stmt->affected_rows) {
                 $respuesta = array(
                     'respuesta' => 'exito',
                     'id_admin' => $id_registro
