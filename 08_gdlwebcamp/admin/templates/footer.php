@@ -29,6 +29,8 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <!-- bootstrap time picker -->
     <script src="js/bootstrap-timepicker.min.js"></script>
+    <!-- FontAwesome IconPicker -->
+    <script src="js/fontawesome-iconpicker.min.js"></script>
 
     <script src="js/admin-ajax.js"></script>
     <script src="js/login-ajax.js"></script>

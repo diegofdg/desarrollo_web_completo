@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="css/bootstrap-timepicker.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- FontAwesome IconPicker-->
+  <link rel="stylesheet" href="css/fontawesome-iconpicker.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="css/ionicons.min.css">
   <!-- DataTables -->
