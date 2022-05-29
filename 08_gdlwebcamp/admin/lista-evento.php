@@ -64,7 +64,7 @@
                                             <a href="editar-evento.php?id=<?php echo $eventos['evento_id']; ?>" type="button" class="btn bg-orange btn-flat margin">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
-                                            <a href="#" data-id="<?php echo $eventos['evento_id']; ?>" data-tipo="evento" type="button" class="btn bg-maroon btn-flat margin borrar_evento">
+                                            <a href="#" data-id="<?php echo $eventos['evento_id']; ?>" data-tipo="evento" type="button" class="btn bg-maroon btn-flat margin borrar_registro">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                         </td>

@@ -65,7 +65,7 @@ $(document).ready(function() {
                             'Eliminado!',
                             'Registro Eliminado.',
                             'success'
-                        );                        
+                        );
                         jQuery("[data-id='"+resultado.id_eliminado+"'").parents('tr').remove();
                     } else {
                         swal(
