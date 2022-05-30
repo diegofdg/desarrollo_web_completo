@@ -36,6 +36,47 @@ $(document).ready(function() {
         });
     });
 
+    $('#guardar-registro-archivo').on('submit', function(e) {
+        e.preventDefault();
+
+        var datos = new FormData(this);
+
+        $.ajax({
+            type: $(this).attr('method'),
+            data: datos,
+            url: $(this).attr('action'),
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            async: true,
+            cache: false,
+            success: function(data) {                
+                var resultado = data;
+                
+                if(resultado.respuesta == 'exito') {
+                    swal(
+                        'Correcto!',
+                        'Se guardó correctamente!',
+                        'success'
+                    );
+                } else {
+                    swal(
+                        'Error!',
+                        'Hubo un error al enviar su información!',
+                        'error'
+                    );
+                }
+            },
+            error: function(error) {
+                swal(
+                    'Error!',
+                    'Hubo un error al enviar su información!',
+                    'error'
+                );
+            }
+        });
+    });
+
     $('.borrar_registro').on('click', function(e) {
         e.preventDefault();
 
