@@ -112,7 +112,7 @@
         $id_borrar = $_POST['id'];
 
         try {
-            $stmt = $conn->prepare("DELETE FROM categoria_evento WHERE id_categoria = ? ");
+            $stmt = $conn->prepare("DELETE FROM invitados WHERE invitado_id = ? ");
             $stmt->bind_param("i", $id_borrar);
             $stmt->execute();
             if($stmt->affected_rows) {
