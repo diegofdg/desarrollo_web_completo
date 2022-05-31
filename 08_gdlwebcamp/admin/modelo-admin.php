@@ -18,7 +18,7 @@
             if($id_registro > 0) {
                 $respuesta = array(
                     'respuesta' => 'exito',
-                    'id_admin' => $id_registro
+                    'id_insertado' => $id_registro
                 );
             } else {
                 $respuesta = array(
