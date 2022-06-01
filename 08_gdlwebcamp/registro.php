@@ -92,9 +92,25 @@
                             echo $e->getMessage();
                         }
 
-                        $eventos = $resultado->fetch_assoc();
+                        $eventos_dias = array();
+
+                        while($eventos = $resultado->fetch_assoc()) {
+                            $fecha = $eventos['fecha_evento'];
+                            setlocale(LC_TIME, 'spanish');
+                            $dia_semana = strftime("%A", strtotime($fecha));
+                            $categoria = $eventos['cat_evento'];
+                            $dia = array(
+                                'nombre_evento' => $eventos['nombre_evento'],
+                                'hora' => $eventos['hora_evento'],
+                                'id' => $eventos['evento_id'],
+                                'nombre_invitado' => $eventos['nombre_invitado'],
+                                'apellido_invitado' => $eventos['apellido_invitado'],
+                                
+                            );
+                            $eventos_dias[utf8_encode($dia_semana)]['eventos'][$categoria][] = $dia;
+                        };
                         echo "<pre>";
-                        var_dump($eventos);
+                        var_dump($eventos_dias);
                         echo "</pre>";
                     ?>
 
