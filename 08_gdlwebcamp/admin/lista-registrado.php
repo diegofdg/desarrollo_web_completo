@@ -66,7 +66,22 @@
                                         </td>
                                         <td><?php echo $registrado['email_registrado']; ?></td>
                                         <td><?php echo $registrado['fecha_registro']; ?></td>
-                                        <td><?php echo $registrado['pases_articulos']; ?></td>
+                                        <td>
+                                            <?php 
+                                                $articulos = json_decode($registrado['pases_articulos'], true);
+                                                $arreglo_articulos = array(
+                                                    'un_dia' => 'Pase 1 día',
+                                                    'pase_2dias' => 'Pase 2 días',
+                                                    'pase_completo' => 'Pase Completo',
+                                                    'camisas' => 'Camisas',
+                                                    'etiquetas' => 'Etiquetas'
+                                                );
+
+                                                foreach($articulos as $llave => $articulo) {
+                                                    echo $articulo . " " . $arreglo_articulos[$llave] . "<br>";
+                                                }
+                                            ?>
+                                        </td>
                                         <td><?php echo $registrado['talleres_registrados']; ?></td>
                                         <td><?php echo $registrado['nombre_regalo']; ?></td>
                                         <td>$ <?php echo $registrado['total_pagado']; ?></td>
