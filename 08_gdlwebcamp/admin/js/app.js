@@ -55,4 +55,9 @@ $(document).ready(function () {
     });
 
     $('#icono').iconpicker();
+    
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        checkboxClass: 'icheckbox_flat-blue',
+        radioClass   : 'iradio_flat-blue'
+      })
 });

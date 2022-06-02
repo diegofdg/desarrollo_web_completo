@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="css/skins/_all-skins.min.css">
   <!-- SweetAlert 2 -->
   <link rel="stylesheet" href="css/sweetalert2.min.css">  
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="css/all.css">
   
   <link rel="stylesheet" href="css/admin.css">
 

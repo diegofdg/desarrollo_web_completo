@@ -48,6 +48,7 @@
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cotizador.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

@@ -31,10 +31,13 @@
     <script src="js/bootstrap-timepicker.min.js"></script>
     <!-- FontAwesome IconPicker -->
     <script src="js/fontawesome-iconpicker.min.js"></script>
+    <!-- iCheck for checkboxes and radio inputs -->
+    <script src="js/icheck.min.js"></script>
 
     <script src="js/admin-ajax.js"></script>
     <script src="js/login-ajax.js"></script>
     <script src="js/app.js"></script>
+    <script src="../js/cotizador.js"></script>
 
     <!-- AdminLTE for demo purposes -->
     <script src="js/demo.js"></script>

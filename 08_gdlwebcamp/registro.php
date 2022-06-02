@@ -126,7 +126,7 @@
                             <?php foreach($evento_dia as $evento) { ?>
                             <label>
                                 <input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
-                                <time>"<?php echo $evento['hora']; ?>"</time> "<?php echo $evento['nombre_evento']; ?>"
+                                <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre_evento']; ?>
                                 <br>
                                 <span class="autor"><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?></span>
                             </label>
