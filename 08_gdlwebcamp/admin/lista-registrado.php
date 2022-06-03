@@ -78,7 +78,11 @@
                                                 );
 
                                                 foreach($articulos as $llave => $articulo) {
-                                                    echo $articulo . " " . $arreglo_articulos[$llave] . "<br>";
+                                                    if(is_array($articulo) && array_key_exists('cantidad', $articulo)) {
+                                                        echo $articulo['cantidad'] . " " . $arreglo_articulos[$llave] . "<br>";
+                                                    } else {
+                                                        echo $articulo . " " . $arreglo_articulos[$llave] . "<br>";
+                                                    }
                                                 }
                                             ?>
                                         </td>
@@ -87,7 +91,7 @@
                                                 $eventos_resultado = $registrado['talleres_registrados'];
                                                 $talleres = json_decode($eventos_resultado, true);
                                                 $talleres = implode("', '", $talleres['eventos']);
-                                                $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres')";
+                                                $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres') OR evento_id IN ('$talleres') ";
                                                 $resultado_talleres = $conn->query($sql_talleres);
                                                 while($eventos = $resultado_talleres->fetch_assoc()) {
                                                     echo $eventos['nombre_evento'] . " " . $eventos['fecha_evento'] . " " . $eventos['hora_evento'] . "<br>";
@@ -95,7 +99,7 @@
                                             ?>
                                         </td>
                                         <td><?php echo $registrado['nombre_regalo']; ?></td>
-                                        <td>$ <?php echo $registrado['total_pagado']; ?></td>
+                                        <td>$ <?php echo (float) $registrado['total_pagado']; ?></td>
                                         <td>
                                             <a href="editar-registrado.php?id=<?php echo $registrado['ID_registrado']; ?>" type="button" class="btn bg-orange btn-flat margin">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
