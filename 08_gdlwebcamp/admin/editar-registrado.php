@@ -207,7 +207,6 @@
                                                         </select>
                                                     </div>
                                                     <br>
-                                                    <input type="hidden" name="total_pedido" id="total_pedido">
                                                     <input type="button" id="calcular" class="btn btn-success" value="Calcular">
                                                 </div>                    
 
@@ -224,10 +223,11 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
+                                    <input type="hidden" name="total_pedido" id="total_pedido">
                                     <input type="hidden" name="registro" value="actualizar">
                                     <input type="hidden" name="id_registro" value="<?php echo $id; ?>">
                                     <input type="hidden" name="fecha_registro" value="<?php echo $registrado['fecha_registro']; ?>">
-                                    <button type="submit" class="btn btn-primary" id="btnRegistro">Añadir</button>
+                                    <button type="submit" class="btn btn-primary" id="btnRegistro">Guardar</button>
                                 </div>
                             </form>
                         </div>
