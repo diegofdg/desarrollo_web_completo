@@ -27,6 +27,13 @@
             pase_dia.addEventListener('change', mostrarDias);
             pase_dosdias.addEventListener('change', mostrarDias);
             pase_completo.addEventListener('change', mostrarDias);
+
+            var formulario_editar = document.getElementsByClassName('editar-form');
+            if(formulario_editar.length > 0) {
+                if(pase_dia.value || pase_dosdias.value || pase_completo.value) {
+                    mostrarDias();
+                }
+            }            
     
             nombre.addEventListener('blur', validarCampos);
             apellido.addEventListener('blur', validarCampos);
