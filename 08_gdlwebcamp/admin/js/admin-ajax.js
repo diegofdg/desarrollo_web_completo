@@ -10,7 +10,7 @@ $(document).ready(function() {
             url: $(this).attr('action'),
             dataType: 'json',
             success: function(data) {
-                
+
                 var resultado = data;
                 if(resultado.respuesta == 'exito') {
                     swal(

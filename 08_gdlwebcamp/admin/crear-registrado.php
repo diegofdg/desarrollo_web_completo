@@ -11,8 +11,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Crear Categorías de Eventos
-                <small>llena el formulario para crear una categoría</small>
+                Crear Registro de Usuarios Manual
+                <small>llena el formulario para crear un usuario registrado</small>
             </h1>
         </section>
 
@@ -23,7 +23,7 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Crear Categoría</h3>
+                            <h3 class="box-title">Crear Usuario</h3>
                         </div>
                         <div class="box-body">
                             <!-- form start -->
@@ -41,6 +41,7 @@
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                                     </div>
+                                    <div id="error"></div>
                                     <div class="form-group">
                                         <div id="paquetes" class="paquetes">
                                             <div class="box-header with-border">
@@ -148,7 +149,7 @@
 
                                                         <?php foreach($evento_dia as $evento) { ?>
                                                         <label>
-                                                            <input type="checkbox" class="flat-red" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
+                                                            <input type="checkbox" class="flat-red" name="registro_evento[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
                                                             <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre_evento']; ?>
                                                             <br>
                                                             <span class="autor"><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?></span>
