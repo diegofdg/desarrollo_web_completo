@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="css/sweetalert2.min.css">  
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="css/all.css">
+  <!-- Morris charts -->
+  <link rel="stylesheet" href="css/morris.css">
   
   <link rel="stylesheet" href="css/admin.css">
 

@@ -19,6 +19,28 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
+                <!-- LINE CHART -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Line Chart</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body chart-responsive">
+                        <div class="chart" id="grafica-registros" style="height: 300px;"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <h2 class="page-header">Resumen de Registros</h2>
+            <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <?php
                         $sql = "SELECT COUNT(ID_Registrado) AS registros FROM registrados";
