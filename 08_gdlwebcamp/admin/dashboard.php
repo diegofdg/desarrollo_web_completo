@@ -100,6 +100,70 @@
                     </div>
                 </div>
             </div>
+
+            <h2 class="page-header">Regalos</h2>
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <?php
+                        $sql = "SELECT COUNT(total_pagado) AS pulseras FROM registrados WHERE regalo = 1";
+                        $resultado = $conn->query($sql);
+                        $regalo = $resultado->fetch_assoc();
+                    ?>
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3><?php echo $regalo ['pulseras']; ?></h3>
+                            <p>Pulseras</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-gift"></i>
+                        </div>
+                        <a href="lista_registrado.php" class="small-box-footer">
+                            Más Información <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <?php
+                        $sql = "SELECT COUNT(total_pagado) AS etiquetas FROM registrados WHERE regalo = 2";
+                        $resultado = $conn->query($sql);
+                        $regalo = $resultado->fetch_assoc();
+                    ?>
+                    <!-- small box -->
+                    <div class="small-box bg-maroon">
+                        <div class="inner">
+                            <h3><?php echo $regalo ['etiquetas']; ?></h3>
+                            <p>Etiquetas</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-gift"></i>
+                        </div>
+                        <a href="lista_registrado.php" class="small-box-footer">
+                            Más Información <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <?php
+                        $sql = "SELECT COUNT(total_pagado) AS plumas FROM registrados WHERE regalo = 3";
+                        $resultado = $conn->query($sql);
+                        $regalo = $resultado->fetch_assoc();
+                    ?>
+                    <!-- small box -->
+                    <div class="small-box bg-purple-active">
+                        <div class="inner">
+                            <h3><?php echo $regalo ['plumas']; ?></h3>
+                            <p>Plumas</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-gift"></i>
+                        </div>
+                        <a href="lista_registrado.php" class="small-box-footer">
+                            Más Información <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
     </div>
