@@ -42,7 +42,8 @@ if (isset($_POST['submit'])) {
         echo $e->getMessage();
     }
 
-    define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?&id_pago=' . $ID_registro);
+    //define('PAYPAL_RETURN_URL', 'http://localhost:5500/pago_finalizado.php?&id_pago=' . $ID_registro);
+    define('PAYPAL_RETURN_URL', 'https://ddg-gdlwebcamp.herokuapp.com/pago_finalizado.php?&id_pago=' . $ID_registro);
 
     $items = new ItemBag();
 

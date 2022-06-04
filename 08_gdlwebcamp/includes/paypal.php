@@ -7,7 +7,8 @@ use Omnipay\Omnipay;
 define('CLIENT_ID', '');
 define('CLIENT_SECRET', '');
  
-define('PAYPAL_CANCEL_URL', 'http://localhost:5500/pago_finalizado.php?');
+// define('PAYPAL_CANCEL_URL', 'http://localhost:5500/pago_finalizado.php?'); 
+define('PAYPAL_CANCEL_URL', 'https://ddg-gdlwebcamp.herokuapp.com/pago_finalizado.php?');
 define('PAYPAL_CURRENCY', 'USD');
  
 $gateway = Omnipay::create('PayPal_Rest');

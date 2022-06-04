@@ -830,21 +830,9 @@ div.newsletter::before {
 
 div.newsletter .contenido {
   padding: 100px 0;
-  color: #FFFFFF;
+  color: #000000;
   text-align: center;
   position: relative;
-}
-
-div.newsletter .contenido p {
-  font-size: 1.2em;
-  text-transform: lowercase;
-}
-
-div.newsletter .contenido h3 {
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-size: 7vw;
-  font-family: 'PT Sans', sans-serif; 
 }
 
 /** Cuenta regresiva **/

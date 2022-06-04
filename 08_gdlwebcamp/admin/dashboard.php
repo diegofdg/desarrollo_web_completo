@@ -110,7 +110,7 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>$<?php echo $registrados ['ganancias']; ?></h3>
+                            <h3>$<?php echo bcdiv($registrados ['ganancias'], '1', 2); ?></h3>
                             <p>Ganancias Totales</p>
                         </div>
                         <div class="icon">

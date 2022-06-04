@@ -63,7 +63,7 @@
     <div class="barra">
         <div class="contenedor clearfix">
             <div class="logo">
-                <a href="index.php">
+                <a href="/">
                     <img src="img/logo.svg" alt="logo gdlwebcamp">
                 </a>
             </div>

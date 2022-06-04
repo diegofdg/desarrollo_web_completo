@@ -98,6 +98,15 @@
                             $fecha = $eventos['fecha_evento'];
                             setlocale(LC_TIME, 'spanish');
                             $dia_semana = strftime("%A", strtotime($fecha));
+
+                            if($dia_semana == 'viernes' || $dia_semana == 'Friday'){
+                                $dia_semana = 'viernes';
+                            } else if (utf8_encode($dia_semana) == 'sábado' || $dia_semana == 'Saturday') {
+                                $dia_semana = 'sabado';
+                            } else if ($dia_semana == 'domingo' || $dia_semana == 'Sunday') {
+                                $dia_semana = 'domingo';
+                            }
+                            
                             $categoria = $eventos['cat_evento'];
                             $dia = array(
                                 'nombre_evento' => $eventos['nombre_evento'],
@@ -109,9 +118,6 @@
                             );
                             $eventos_dias[utf8_encode($dia_semana)]['eventos'][$categoria][] = $dia;
                         };
-                        /* echo "<pre>";
-                        var_dump($eventos_dias);
-                        echo "</pre>"; */
                     ?>
 
                     <?php foreach ($eventos_dias as $dia => $eventos) { ?>
