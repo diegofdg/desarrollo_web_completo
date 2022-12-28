@@ -10,8 +10,7 @@ Este repositorio contiene todos los proyectos incluidos en el curso "Desarrollo 
     <li><a href="https://ddg-frontendstore.netlify.app/">Frontend Store</a></li>
     <li><a href="https://ddg-blogdecafe.netlify.app/">Blog de Café</a></li>
     <li><a href="https://ddg-festivalmusica.netlify.app/">Festival de Música</a></li>
-    <li><a href="https://ddg-bienesraices.herokuapp.com/">Bienes Raíces</a></li>
-    <li><a href="https://ddg-appsalon.herokuapp.com/">App Salón</a></li>
-    <li><a href="https://ddg-uptask.herokuapp.com/">UpTask</a></li>
-    <li><a href="https://ddg-gdlwebcamp.herokuapp.com/">GDLWebCamp</a></li>
+    <li><a href="https://ddg-bienesraices.herokuapp.com/">Bienes Raíces (Link caído - cuenta gratuita de heroku)</a></li>
+    <li><a href="https://ddg-appsalon.herokuapp.com/">App Salón  (Link caído - cuenta gratuita de heroku)</a></li>
+    <li><a href="https://ddg-uptask.herokuapp.com/">UpTask  (Link caído - cuenta gratuita de heroku)</a></li>
 </ol>
