@@ -9,4 +9,10 @@
         @extend .acciones;
         justify-content: center;
     }
+
+    &__enlace {
+        color: v.$negro;
+        font-size: 1.4rem;
+        font-weight: v.$delgada;
+    }
 }
