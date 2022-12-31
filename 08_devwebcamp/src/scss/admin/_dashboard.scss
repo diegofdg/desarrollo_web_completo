@@ -88,4 +88,21 @@
             padding: 1rem 5rem 3rem 5rem;
         }
     }
+
+    &__contenedor-boton {
+        @include m.tablet {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 5rem;
+        }
+    }
+    
+    &__boton {
+        @include m.boton(v.$azul, v.$blanco);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        @include m.tablet {
+            width: auto;
+        }
+    }
 }
