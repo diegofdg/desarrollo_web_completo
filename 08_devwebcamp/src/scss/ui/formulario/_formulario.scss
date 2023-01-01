@@ -4,6 +4,18 @@
 .formulario {
     display: flex;
     flex-direction: column;
+
+    &__fieldset {
+        border: none;
+        margin-top: 1rem;
+        padding: 0;
+    }
+    
+    &__legend {
+        color: v.$gris;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
     
     &__campo {
         display: flex;
@@ -28,5 +40,10 @@
         @include m.boton(v.$azul, v.$blanco);
         width: auto;
         align-self: flex-start;
+
+        &--registrar,
+        &--full {
+            width: 100%;
+        }
     }
 }
