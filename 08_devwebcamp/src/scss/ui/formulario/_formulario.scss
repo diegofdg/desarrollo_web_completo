@@ -23,6 +23,25 @@
         gap: 1rem;
         margin: 1.5rem 0;
     }
+
+    &__contenedor-icono {
+        display: flex;
+        border-radius: .5rem;
+        overflow: hidden;
+    }
+
+    &__icono {
+        background-color: v.$gris-oscuro;
+        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: v.$blanco;
+            font-size: 2rem;
+        }
+    }
     
     &__label {
         display: block;
@@ -37,6 +56,13 @@
 
         &--file {
             border: none;
+        }
+
+        &--sociales {
+            @extend .formulario__input;
+            flex: 1;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
     }
 
