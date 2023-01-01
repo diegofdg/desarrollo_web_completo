@@ -37,9 +37,26 @@ class PonentesController {
                 $_POST['imagen'] = $nombre_imagen;
             }
             
+            $_POST['redes'] = json_encode( $_POST['redes'], JSON_UNESCAPED_SLASHES );
             $ponente->sincronizar($_POST);
             
+            // validar
             $alertas = $ponente->validar();
+
+            // Guardar el registro
+            if(empty($alertas)) {
+
+                // Guardar las imagenes
+                $imagen_png->save($carpeta_imagenes . '/' . $nombre_imagen . ".png" );
+                $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . ".webp" );
+
+                // Guardar en la BD
+                $resultado = $ponente->guardar();
+
+                if($resultado) {
+                    header('Location: /admin/ponentes');
+                }
+            }
         }
 
         $router->render('admin/ponentes/crear', [
