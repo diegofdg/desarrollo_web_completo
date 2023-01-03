@@ -86,6 +86,8 @@ class PonentesController {
             header('Location: /admin/ponentes');
         }
 
+        $ponente->imagen_actual = $ponente->imagen;
+
         $router->render('admin/ponentes/editar', [
             'titulo' => 'Editar Ponente',
             'alertas' => $alertas,
