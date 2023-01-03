@@ -66,5 +66,30 @@ class PonentesController {
             'alertas' => $alertas,
             'ponente' => $ponente
         ]);
-    }    
+    }
+
+    public static function editar(Router $router) {
+        $alertas = [];
+
+        // Validar el ID
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        if(!$id) {
+            header('Location: /admin/ponentes');
+        }
+
+        // Obtener ponente a Editar
+        $ponente = Ponente::find($id);
+
+        if(!$ponente) {
+            header('Location: /admin/ponentes');
+        }
+
+        $router->render('admin/ponentes/editar', [
+            'titulo' => 'Editar Ponente',
+            'alertas' => $alertas,
+            'ponente' => $ponente
+        ]);
+    }
 }
