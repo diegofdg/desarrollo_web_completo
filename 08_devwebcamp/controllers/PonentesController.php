@@ -21,13 +21,13 @@ class PonentesController {
             header('Location: /admin/ponentes?page=1');
         }
         
-        $registros_por_pagina = 10;
+        $registros_por_pagina = 5;
         
         $total = Ponente::total();
 
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total);
 
-        debuguear($paginacion);
+        debuguear($paginacion->pagina_siguiente());
 
         $ponentes = ponente::all();
         $router->render('admin/ponentes/index', [
