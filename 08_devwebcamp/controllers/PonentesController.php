@@ -27,12 +27,11 @@ class PonentesController {
 
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total);
 
-        debuguear($paginacion->pagina_siguiente());
-
         $ponentes = ponente::all();
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
-            'ponentes' => $ponentes
+            'ponentes' => $ponentes,
+            'paginacion' => $paginacion->paginacion()
         ]);
     }
     
