@@ -28,5 +28,22 @@
                 color: v.$blanco;
             }
         }
+
+        &--numero {
+            font-weight: v.$bold;
+            display: none;
+            @include m.tablet {
+                display: inline;
+            }
+        }
+        
+        &--actual {
+            color: v.$gris;
+            font-weight: v.$bold;
+            display: none;
+            @include m.tablet {
+                display: inline;
+            }
+        }
     }
 }
