@@ -20,12 +20,14 @@ class EventosController {
 
         $categorias = Categoria::all();
         $dias = Dia::all('ASC');
+        $horas = Hora::all('ASC');
 
         $router->render('admin/eventos/crear', [
             'titulo' => 'Registrar Evento',
             'alertas' => $alertas,
             'categorias' => $categorias,
-            'dias' => $dias
+            'dias' => $dias,
+            'horas' => $horas
         ]);
     }
 }
