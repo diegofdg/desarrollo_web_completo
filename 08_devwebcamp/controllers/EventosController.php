@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Model\Categoria;
 use Model\Dia;
+use Model\Hora;
 use MVC\Router;
 
 class EventosController {
