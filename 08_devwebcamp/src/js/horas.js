@@ -30,20 +30,20 @@
 
             const resultado = await fetch(url);
             const eventos = await resultado.json();
-            console.log(eventos);
-            obtenerHorasDisponibles();
+            obtenerHorasDisponibles(eventos);
         }
 
-        function obtenerHorasDisponibles() {
+        function obtenerHorasDisponibles(eventos) {
             // Comprobar eventos ya tomados, y quitar la variable de deshabilitado
-            const horasTomadas = eventos.map( evento => evento.hora_id);            
-            const listadoHoras = document.querySelectorAll('#horas li');
-            const resultado = listadoHoras.filter( li =>  horasTomadas.includes(li.dataset.horaId) );
+            const horasTomadas = eventos.map( evento => evento.hora_id);
             
-            console.log(listadoHoras);
-            console.log(resultado);
+            const listadoHoras = document.querySelectorAll('#horas li');
+            const listadoHorasArray = Array.from(listadoHoras);
 
-            const horasDisponibles = document.querySelectorAll('#horas li');
+            const resultado = listadoHorasArray.filter( li =>  !horasTomadas.includes(li.dataset.horaId) );
+            resultado.forEach( li => li.classList.remove('horas__hora--deshabilitada'));
+
+            const horasDisponibles = document.querySelectorAll('#horas li:not(.horas__hora--deshabilitada)');
             horasDisponibles.forEach( hora => hora.addEventListener('click', seleccionarHora));
 
         }
