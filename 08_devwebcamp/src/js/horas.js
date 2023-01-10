@@ -1,8 +1,5 @@
 (function(){
-    const horas = document.querySelectorAll('#horas li');
-    /* const listadoHoras = document.querySelectorAll('#horas li'); */
-    console.log(horas);
-    
+    const horas = document.querySelector('#horas');    
 
     if(horas) {
         let busqueda = {
@@ -43,6 +40,15 @@
         }
 
         function seleccionarHora(e) {
+            // Deshabilitar la hora previa, si hay un nuevo click
+            const horaPrevia = document.querySelector('.horas__hora--seleccionada');
+            if(horaPrevia) {
+                horaPrevia.classList.remove('horas__hora--seleccionada');
+            }
+
+            // Agregar clase de seleccionado
+            e.target.classList.add('horas__hora--seleccionada');
+
             inputHiddenHora.value = e.target.dataset.horaId;
         }
     }
