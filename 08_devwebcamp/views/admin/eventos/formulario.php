@@ -50,6 +50,7 @@
                         id="<?php echo strtolower($dia->nombre); ?>"
                         name="dia"
                         value="<?php echo $dia->id; ?>"
+                        <?php echo ($evento->dia_id === $dia->id) ? 'checked' : ''; ?>
                     />
                 </div>
             <?php } ?>
