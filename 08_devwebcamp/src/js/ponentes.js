@@ -6,6 +6,7 @@
         let ponentesFiltrados = [];
 
         obtenerPonentes();
+        ponentesInput.addEventListener('input', buscarPonentes);
         
         async function obtenerPonentes() {
             const url = `/api/ponentes`;
@@ -21,7 +22,21 @@
                     id: ponente.id
                 } 
             });
-            console.log(ponentes);
+        }
+
+        function buscarPonentes(e) {
+            const busqueda = e.target.value;
+
+            if(busqueda.length > 3) {
+                const expresion = new RegExp(busqueda, "i");
+                ponentesFiltrados = ponentes.filter(ponente => {
+                    if(ponente.nombre.toLowerCase().search(expresion) != -1) {
+                        return ponente
+                    }
+                })
+            }
+
+            console.log(ponentesFiltrados);
         }
     }
 })();
