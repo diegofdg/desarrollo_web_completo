@@ -68,6 +68,14 @@
     margin: 2rem 0;
 }
 
+@mixin descripcion-pagina {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: v.$delgada;
+    color: v.$gris-oscuro;
+    margin-bottom: 5rem;
+}
+
 @mixin nombre-pagina {
     @include headings;
     margin: 6rem 0 3rem 0;
