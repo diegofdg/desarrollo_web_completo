@@ -14,9 +14,7 @@
                     <div class="evento__informacion">
                         <h4 class="evento__nombre"><?php echo $evento->nombre; ?></h4>
 
-                        <div>
-                            <p class="evento__informacion"><?php echo $evento->descripcion; ?></p>
-                        </div>
+                        <p class="evento__introduccion"><?php echo $evento->descripcion; ?></p>                        
 
                         <div class="evento__autor-info">
                             <picture>
