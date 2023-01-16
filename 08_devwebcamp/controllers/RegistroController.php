@@ -3,7 +3,10 @@
 namespace Controllers;
 
 use MVC\Router;
+use Model\Paquete;
+use Model\Usuario;
 use Model\Registro;
+
 
 class RegistroController {
 
@@ -40,5 +43,31 @@ class RegistroController {
                 return;
             }
         }
+    }
+
+    public static function boleto(Router $router) {
+
+        // Validar la URL
+        $id = $_GET['id'];
+
+        if(!$id || !strlen($id) === 8 ) {
+            header('Location: /');
+            return;
+        }
+
+        // buscarlo en la BD
+        $registro = Registro::where('token', $id);
+        if(!$registro) {
+            header('Location: /');
+            return;
+        }
+        // Llenar las tablas de referencia
+        $registro->usuario = Usuario::find($registro->usuario_id);
+        $registro->paquete = Paquete::find($registro->paquete_id);
+
+        $router->render('registro/boleto', [
+            'titulo' => 'Asistencia a DevWebCamp',
+            'registro' => $registro
+        ]);
     }
 }
