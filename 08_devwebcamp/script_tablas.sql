@@ -60,6 +60,30 @@ CREATE TABLE `eventos` (
   CONSTRAINT `fk_eventos_ponentes1` FOREIGN KEY (`ponente_id`) REFERENCES `ponentes` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+CREATE TABLE `paquetes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `paquetes` (`id`, `nombre`) VALUES
+(1, 'Presencial'),
+(2, 'Virtual'),
+(3, 'Gratis');
+
+CREATE TABLE `registros` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `paquete_id` int DEFAULT NULL,
+  `pago_id` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `token` varchar(8) DEFAULT NULL,
+  `usuario_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuarioId` (`usuario_id`),
+  KEY `paquete_id` (`paquete_id`),
+  CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`paquete_id`) REFERENCES `paquetes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 INSERT INTO `horas` (`id`, `hora`) VALUES
 (1, '10:00 - 10:55'),
 (2, '11:00 - 11:55'),
