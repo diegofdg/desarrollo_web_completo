@@ -26,7 +26,7 @@ class RegistroController {
         // Verificar si el usuario ya esta registrado
         $registro = Registro::where('usuario_id', $_SESSION['id']);
 
-        if(isset($registro) && $registro->paquete_id === "3") {
+        if(isset($registro) && $registro->paquete_id === "3" || $registro->paquete_id === "2" ) {
             header('Location: /boleto?id=' . urlencode($registro->token));
             return;
         }
@@ -146,13 +146,18 @@ class RegistroController {
         $usuario_id = $_SESSION['id'];
         $registro = Registro::where('usuario_id', $usuario_id);
 
+        if(isset($registro) && $registro->paquete_id === "2") {
+            header('Location: /boleto?id=' . urlencode($registro->token));
+            return;
+        }
+
         if($registro->paquete_id !== "1") {
             header('Location: /');
             return;
         }
 
         // Redireccionar a boleto virtual en caso de haber finalizado su registro
-        if(isset($registro->regalo_id)) {
+        if(isset($registro->regalo_id) && $registro->paquete_id === "1") {
             header('Location: /boleto?id=' . urlencode($registro->token));
             return;
         }
