@@ -128,6 +128,7 @@ class PonentesController {
 
             if(!is_admin()) {
                 header('Location: /login');
+                return;
             }
 
             if(!empty($_FILES['imagen']['tmp_name'])) {
