@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 
         const formularioRegistro = document.querySelector('#registro');
         formularioRegistro.addEventListener('submit', submitFormulario);
+
+        mostrarEventos();
     
         function seleccionarEvento({target}) {
     
@@ -57,7 +59,12 @@ import Swal from 'sweetalert2';
                     eventoDOM.appendChild(titulo);
                     eventoDOM.appendChild(botonEliminar);
                     resumen.appendChild(eventoDOM);
-                })
+                });
+            } else {
+                const noRegistro = document.createElement('P');
+                noRegistro.textContent = 'No hay eventos, añade hasta 5 del lado izquierdo';
+                noRegistro.classList.add('registro__texto');
+                resumen.appendChild(noRegistro);
             }
         }
     
@@ -74,7 +81,7 @@ import Swal from 'sweetalert2';
             }
         }
 
-        function submitFormulario(e) {
+        async function submitFormulario(e) {
             e.preventDefault();
 
             // Obtener el regalo
@@ -89,7 +96,21 @@ import Swal from 'sweetalert2';
                     confirmButtonText: 'OK'
                 });
                 return;
-            }            
+            }
+
+            // Objeto de formdata
+            const datos = new FormData();
+            datos.append('eventos', eventosId);
+            datos.append('regalo_id', regaloId);
+
+            const url = '/finalizar-registro/conferencias';
+            const respuesta = await fetch(url, {
+                method: 'POST',
+                body: datos
+            })
+            const resultado = await respuesta.json();
+
+            console.log(resultado)
         }
     }
 
