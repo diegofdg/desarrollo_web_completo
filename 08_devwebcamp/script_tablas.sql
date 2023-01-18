@@ -77,12 +77,32 @@ CREATE TABLE `registros` (
   `pago_id` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `token` varchar(8) DEFAULT NULL,
   `usuario_id` int DEFAULT NULL,
+  `regalo_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `usuarioId` (`usuario_id`),
   KEY `paquete_id` (`paquete_id`),
+  KEY `regalo_id` (`regalo_id`),
   CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
-  CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`paquete_id`) REFERENCES `paquetes` (`id`)
+  CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`paquete_id`) REFERENCES `paquetes` (`id`),
+  CONSTRAINT `registros_ibfk_3` FOREIGN KEY (`regalo_id`) REFERENCES `regalos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+CREATE TABLE `regalos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `regalos` (`id`, `nombre`) VALUES
+(1, 'Paquete Stickers'),
+(2, 'Camisa Mujer - Chica'),
+(3, 'Camisa Mujer - Mediana'),
+(4, 'Camisa Mujer - Grande'),
+(5, 'Camisa Mujer - XL'),
+(6, 'Camisa Hombre - Chica'),
+(7, 'Camisa Hombre - Mediana'),
+(8, 'Camisa Hombre - Grande'),
+(9, 'Camisa Hombre - XL');
 
 INSERT INTO `horas` (`id`, `hora`) VALUES
 (1, '10:00 - 10:55'),
