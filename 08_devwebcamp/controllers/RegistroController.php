@@ -12,6 +12,7 @@ use Model\Evento;
 use Model\Ponente;
 use Model\Categoria;
 use Model\Regalo;
+use Model\EventosRegistros;
 
 class RegistroController {
 
@@ -29,6 +30,11 @@ class RegistroController {
             header('Location: /boleto?id=' . urlencode($registro->token));
             return;
         }
+
+        if(isset($registro) && $registro->paquete_id === "1") {
+            header('Location: /finalizar-registro/conferencias');
+            return;
+        }   
 
         $router->render('registro/crear', [
             'titulo' => 'Finalizar Registro'
@@ -145,6 +151,12 @@ class RegistroController {
             return;
         }
 
+        // Redireccionar a boleto virtual en caso de haber finalizado su registro
+        if(isset($registro->regalo_id)) {
+            header('Location: /boleto?id=' . urlencode($registro->token));
+            return;
+        }
+
         $eventos = Evento::ordenar('hora_id', 'ASC');
 
         $eventos_formateados = [];
@@ -214,8 +226,29 @@ class RegistroController {
                 $evento->guardar();
 
                 // Almacenar el registro
-                
+                $datos = [
+                    'evento_id' =>  (int) $evento->id,
+                    'registro_id' => (int)  $registro->id
+                ];
+
+                $registro_usuario = new EventosRegistros($datos);
+                $registro_usuario->guardar();                
             }
+
+            // Almacenar el regalo
+            $registro->sincronizar(['regalo_id' => $_POST['regalo_id']]);
+            $resultado = $registro->guardar();
+
+            if($resultado) {
+                echo json_encode([
+                    'resultado' => $resultado, 
+                    'token' => $registro->token
+                ]);
+            } else {
+                echo json_encode(['resultado' => false]);
+            }
+
+            return;
         }
 
         $router->render('registro/conferencias', [
