@@ -16,9 +16,16 @@ class DashboardController {
             $registro->usuario = Usuario::find($registro->usuario_id);
         }
 
+        // Calcular los ingresos
+        $virtuales = Registro::total('paquete_id', 2);
+        $presenciales = Registro::total('paquete_id', 1);
+
+        $ingresos = ($virtuales * 46.41) + ($presenciales * 189.54);
+
         $router->render('admin/dashboard/index', [
             'titulo' => 'Panel de Administración',
-            'registros' => $registros
+            'registros' => $registros,
+            'ingresos' => $ingresos
         ]);
     }
 }
