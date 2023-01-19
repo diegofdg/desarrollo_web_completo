@@ -157,10 +157,10 @@ class RegistroController {
         }
 
         // Redireccionar a boleto virtual en caso de haber finalizado su registro
-        if(isset($registro->regalo_id) && $registro->paquete_id === "1") {
-            header('Location: /boleto?id=' . urlencode($registro->token));
-            return;
-        }
+        // if(isset($registro->regalo_id) && $registro->paquete_id === "1") {
+        //    header('Location: /boleto?id=' . urlencode($registro->token));
+        //    return;
+        //}
 
         $eventos = Evento::ordenar('hora_id', 'ASC');
 
