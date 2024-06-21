@@ -2,10 +2,11 @@
   "name": "festivalmusica",
   "version": "1.0.0",
   "description": "Aprendiendo SASS y NPM",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp hola"
   },
   "keywords": [
     "SASS",
@@ -15,6 +16,7 @@
   "author": "Diego Fabián Di Giorgio",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^5.0.0",
     "sass": "^1.75.0"
   }
 }
