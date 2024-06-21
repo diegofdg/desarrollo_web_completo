@@ -12,5 +12,8 @@
     "Gulp"
   ],
   "author": "Diego Fabián Di Giorgio",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.75.0"
+  }
 }
