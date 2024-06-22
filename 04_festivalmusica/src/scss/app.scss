@@ -1,5 +1,7 @@
+$fuente_pricipal: "Montserrat", sans-serif;
+
 body {
-  font-family : "Montserrat", sans-serif;
+  font-family : $fuente_pricipal;
   font-optical-sizing: auto;
   font-style: normal;
 }
