@@ -29,3 +29,9 @@
   max-width: 120rem;
   margin: 0 auto;
 }
+
+@mixin grid($columnas: 1, $gap: 5rem) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $gap;
+}
