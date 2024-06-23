@@ -18,9 +18,14 @@ body {
   font-style: normal;
   color: v.$negro;
   font-size: 2rem;
+
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 p {
+  font-size: 2rem;
   color: v.$negro;
   line-height: 1.5;
 }
