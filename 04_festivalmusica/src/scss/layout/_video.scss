@@ -1,0 +1,28 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.video {
+  position: relative;
+  min-height: 50rem;
+  max-height: 70rem;
+  overflow: hidden;
+
+  .overlay {
+    position: absolute;
+    background: linear-gradient(270deg,
+      rgba(v.$morado, 60%),
+      rgba(darken(v.$morado, 20%), 90%));
+    inset: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  video {
+    display: block;
+    width: auto;
+
+    @include m.desktop {
+      width: 100%;
+    }
+  }
+}
