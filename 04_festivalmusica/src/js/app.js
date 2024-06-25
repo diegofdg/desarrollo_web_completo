@@ -28,7 +28,7 @@ function crearGaleria() {
     imagen.loading = "lazy"
     imagen.width = "300"
     imagen.heigth = "200"
-    imagen.src = `src/img/gallery/full/${i}.jpg`
+    imagen.src = `src/img/gallery/thumb/${i}.jpg`
     imagen.alt = "Imagen Galería"
 
     // Event Handler
