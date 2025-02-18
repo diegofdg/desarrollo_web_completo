@@ -2,6 +2,9 @@
 
 Este repositorio contiene todos los proyectos incluidos en el curso "Desarrollo Web Completo con HTML5, CSS3, JS, AJAX, PHP y MySQL" dictado en Udemy por Juan Pablo De La Torre Valdez.
 
+<a href="https://drive.google.com/file/d/1JXZdwsOEiFoTQQKW8heaZRZcpyt0KdvY/view?usp=sharing">Link directo al certificado de finalización</a>
+
+
 <a href="https://www.udemy.com/course/desarrollo-web-completo-con-html5-css3-js-php-y-mysql/">Link directo al curso en Udemy</a>
 
 ## **Proyectos del curso**
